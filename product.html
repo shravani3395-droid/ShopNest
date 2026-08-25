@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="ShopNest product details, customer reviews, product information and frequently bought together products."
+    >
+
+    <title>ShopNest - Product Details</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="top-header">
+
+    <!-- LOGO -->
+
+    <div class="logo">
+
+        Shop<span>Nest</span>
+
+    </div>
+
+
+    <!-- LOCATION -->
+
+    <div class="location">
+
+        <small>
+            Deliver to
+        </small>
+
+        <strong>
+            📍 India
+        </strong>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <form
+        class="search-box"
+        onsubmit="searchProduct(); return false;"
+    >
+
+        <select
+            id="searchCategory"
+            aria-label="Search category"
+        >
+
+            <option value="All">
+                All
+            </option>
+
+            <option value="Electronics">
+                Electronics
+            </option>
+
+            <option value="Fashion">
+                Fashion
+            </option>
+
+            <option value="Home">
+                Home
+            </option>
+
+            <option value="Beauty">
+                Beauty
+            </option>
+
+            <option value="Gaming">
+                Gaming
+            </option>
+
+            <option value="Books">
+                Books
+            </option>
+
+        </select>
+
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search ShopNest"
+            autocomplete="off"
+            aria-label="Search ShopNest"
+        >
+
+
+        <button
+            type="submit"
+            aria-label="Search"
+        >
+
+            🔍
+
+        </button>
+
+    </form>
+
+
+    <!-- ACCOUNT -->
+
+    <div class="account">
+
+        <small>
+            Hello, Sign in
+        </small>
+
+        <strong>
+            Account & Lists
+        </strong>
+
+    </div>
+
+
+    <!-- ORDERS -->
+
+    <div class="orders">
+
+        <small>
+            Returns
+        </small>
+
+        <strong>
+            & Orders
+        </strong>
+
+    </div>
+
+
+    <!-- CART -->
+
+    <div
+        class="cart"
+        onclick="openCart()"
+        role="button"
+        tabindex="0"
+    >
+
+        🛒
+
+        <span id="cartCount">
+            0
+        </span>
+
+        <strong>
+            Cart
+        </strong>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav class="navbar">
+
+    <div
+        class="menu"
+        id="allMenuButton"
+        role="button"
+        tabindex="0"
+    >
+
+        ☰ All
+
+    </div>
+
+
+    <a href="index.html">
+        Home
+    </a>
+
+
+    <a href="products.html">
+        Products
+    </a>
+
+
+    <a href="deals.html">
+        Today's Deals
+    </a>
+
+
+    <a href="best-sellers.html">
+        Best Sellers
+    </a>
+
+
+    <a href="new-releases.html">
+        New Releases
+    </a>
+
+
+    <a href="products.html?category=Fashion">
+        Fashion
+    </a>
+
+
+    <a href="products.html?category=Electronics">
+        Electronics
+    </a>
+
+
+    <a href="products.html?category=Home">
+        Home & kitchen
+    </a>
+
+
+    <a href="products.html?category=Beauty">
+        Beauty
+    </a>
+
+
+    <a href="service.html">
+        Customer Service
+    </a>
+
+</nav>
+
+
+
+<!-- =====================================================
+     ALL MENU OVERLAY
+===================================================== -->
+
+<div
+    class="all-menu-overlay"
+    id="allMenuOverlay"
+></div>
+
+
+
+<!-- =====================================================
+     ALL MENU SIDEBAR
+===================================================== -->
+
+<aside
+    class="all-menu-sidebar"
+    id="allMenuSidebar"
+>
+
+
+    <div class="all-menu-header">
+
+        <h2>
+            👤 Hello, Sign in
+        </h2>
+
+
+        <button
+            type="button"
+            id="closeAllMenu"
+            class="close-all-menu"
+            aria-label="Close menu"
+        >
+
+            ✕
+
+        </button>
+
+    </div>
+
+
+
+    <div class="all-menu-content">
+
+
+        <h3>
+            Shop by Category
+        </h3>
+
+
+        <a href="products.html">
+            🛍️ All Products
+        </a>
+
+
+        <a href="products.html?category=Electronics">
+            📱 Electronics
+        </a>
+
+
+        <a href="products.html?category=Fashion">
+            👕 Fashion
+        </a>
+
+
+        <a href="products.html?category=Home">
+            🏠 Home & kitchen
+        </a>
+
+
+        <a href="products.html?category=Beauty">
+            💄 Beauty
+        </a>
+
+
+        <a href="products.html?category=Gaming">
+            🎮 Gaming
+        </a>
+
+
+        <a href="products.html?category=Books">
+            📚 Books
+        </a>
+
+
+
+        <div class="all-menu-divider"></div>
+
+
+
+        <h3>
+            Featured
+        </h3>
+
+
+        <a href="deals.html">
+            🔥 Today's Deals
+        </a>
+
+
+        <a href="best-sellers.html">
+            ⭐ Best Sellers
+        </a>
+
+
+        <a href="new-releases.html">
+            🆕 New Releases
+        </a>
+
+
+
+        <div class="all-menu-divider"></div>
+
+
+
+        <h3>
+            Help & Settings
+        </h3>
+
+
+        <a href="account.html">
+            👤 Your Account
+        </a>
+
+
+        <a href="service.html">
+            ⚙️ Customer Service
+        </a>
+
+    </div>
+
+</aside>
+
+
+
+
+
+<!-- =====================================================
+     MAIN PRODUCT AREA
+===================================================== -->
+
+<main class="product-details">
+
+
+<!-- =====================================================
+     PRODUCT GALLERY
+===================================================== -->
+
+<section class="product-gallery">
+
+    <div class="main-product-image">
+
+        <div class="image-zoom-label">
+            🔍 Hover to zoom
+        </div>
+
+        <img
+            id="productImage"
+            src=""
+            alt="Product"
+        >
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PRODUCT INFORMATION
+===================================================== -->
+
+<section class="product-information">
+
+
+    <p class="brand">
+        Visit the ShopNest Store
+    </p>
+
+
+    <h1 id="productName">
+        Product Name
+    </h1>
+
+
+
+    <!-- RATING -->
+
+    <div class="product-rating">
+
+
+        <span
+            id="productRating"
+            class="rating-stars"
+        >
+            ⭐⭐⭐⭐⭐
+        </span>
+
+
+        <a href="#reviews">
+            See customer reviews
+        </a>
+
+    </div>
+
+
+
+    <!-- RATING SUMMARY -->
+
+    <div class="rating-summary">
+
+
+        <strong id="ratingValue">
+            4.7
+        </strong>
+
+
+        <span>
+            out of 5
+        </span>
+
+
+        <span class="rating-summary-stars">
+            ⭐⭐⭐⭐⭐
+        </span>
+
+
+        <span>
+            1,248 ratings
+        </span>
+
+    </div>
+
+
+
+    <hr>
+
+
+
+    <!-- DEAL -->
+
+    <span class="deal-label">
+        LIMITED TIME DEAL
+    </span>
+
+
+
+    <!-- PRICE -->
+
+    <div
+        class="detail-price"
+        id="productPrice"
+    >
+        ₹0
+    </div>
+
+
+
+    <!-- MRP -->
+
+    <p class="mrp">
+
+        M.R.P:
+
+        <span id="productMRP">
+            ₹0
+        </span>
+
+    </p>
+
+
+
+    <!-- DISCOUNT -->
+
+    <p
+        class="discount-text"
+        id="productDiscount"
+    >
+        Discount
+    </p>
+
+
+
+    <p class="tax">
+        Inclusive of all taxes
+    </p>
+
+
+
+    <hr>
+
+
+
+    <!-- ABOUT PRODUCT -->
+
+    <h2>
+        About this product
+    </h2>
+
+
+
+    <ul
+        class="features-list"
+        id="productFeatures"
+    >
+    </ul>
+
+</section>
+
+    
+
+<!-- =====================================================
+     BUY BOX
+===================================================== -->
+
+<aside class="buy-box">
+
+
+    <div
+        class="buy-price"
+        id="buyBoxPrice"
+    >
+        ₹0
+    </div>
+
+
+
+    <p class="delivery">
+        🚚 FREE Delivery
+    </p>
+
+
+    <p class="delivery">
+        Delivery available across India
+    </p>
+
+
+    <p class="stock">
+        ✓ In Stock
+    </p>
+
+
+
+    <!-- QUANTITY -->
+
+    <div class="quantity-section">
+
+        <label for="quantity">
+            Quantity:
+        </label>
+
+
+        <select id="quantity">
+
+            <option value="1">
+                1
+            </option>
+
+            <option value="2">
+                2
+            </option>
+
+            <option value="3">
+                3
+            </option>
+
+            <option value="4">
+                4
+            </option>
+
+            <option value="5">
+                5
+            </option>
+
+            <option value="6">
+                6
+            </option>
+
+            <option value="7">
+                7
+            </option>
+
+            <option value="8">
+                8
+            </option>
+
+            <option value="9">
+                9
+            </option>
+
+            <option value="10">
+                10
+            </option>
+
+        </select>
+
+    </div>
+
+
+
+    <!-- ADD TO CART -->
+
+    <button
+        type="button"
+        class="add-cart-button"
+        onclick="addProductToCart()"
+    >
+
+        🛒 Add to Cart
+
+    </button>
+
+
+
+    <!-- BUY NOW -->
+
+    <button
+        type="button"
+        class="buy-button"
+        onclick="buyNow()"
+    >
+
+        ⚡ Buy Now
+
+    </button>
+
+
+
+    <!-- WISHLIST -->
+
+    <button
+        type="button"
+        class="wishlist-button"
+        id="wishlistButton"
+        onclick="toggleCurrentProductWishlist()"
+    >
+
+        ♡ Add to Wishlist
+
+    </button>
+
+
+
+    <p class="secure-payment">
+        🔒 Secure transaction
+    </p>
+
+
+
+    <!-- SELLER -->
+
+    <div class="seller-info">
+
+
+        <p>
+
+            <strong>
+                Sold by:
+            </strong>
+
+            ShopNest
+
+        </p>
+
+
+
+        <p>
+
+            <strong>
+                Returns:
+            </strong>
+
+            7 Days Replacement
+
+        </p>
+
+
+
+        <p>
+
+            <strong>
+                Payment:
+            </strong>
+
+            Secure checkout
+
+        </p>
+
+    </div>
+
+</aside>
+
+</main>
+
+
+
+<!-- =====================================================
+     PRODUCT DETAILS
+===================================================== -->
+
+<section class="product-extra">
+
+    <h2>
+        Product Details
+    </h2>
+
+
+
+    <table>
+
+
+        <tr>
+
+            <td>
+                Brand
+            </td>
+
+            <td>
+                ShopNest
+            </td>
+
+        </tr>
+
+
+
+        <tr>
+
+            <td>
+                Category
+            </td>
+
+            <td id="detailCategory">
+                -
+            </td>
+
+        </tr>
+
+
+
+        <tr>
+
+            <td>
+                Product
+            </td>
+
+            <td id="detailProduct">
+                -
+            </td>
+
+        </tr>
+
+
+
+        <tr>
+
+            <td>
+                Availability
+            </td>
+
+            <td>
+                In Stock
+            </td>
+
+        </tr>
+
+
+
+        <tr>
+
+            <td>
+                Delivery
+            </td>
+
+            <td>
+                Available across India
+            </td>
+
+        </tr>
+
+
+
+        <tr>
+
+            <td>
+                Seller
+            </td>
+
+            <td>
+                ShopNest
+            </td>
+
+        </tr>
+
+
+
+        <tr>
+
+            <td>
+                Replacement
+            </td>
+
+            <td>
+                7 Days Replacement
+            </td>
+
+        </tr>
+
+
+
+        <tr>
+
+            <td>
+                Payment
+            </td>
+
+            <td>
+                Secure Payment
+            </td>
+
+        </tr>
+
+    </table>
+
+</section>
+
+
+
+
+
+<!-- =====================================================
+     CUSTOMER REVIEWS
+===================================================== -->
+
+<section
+    class="reviews"
+    id="reviews"
+>
+
+
+    <div class="reviews-header">
+
+
+        <div>
+
+            <h2>
+                Customer Reviews
+            </h2>
+
+
+            <p>
+                See what customers are saying about this product.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- REVIEW SUMMARY -->
+
+    <div class="review-summary">
+
+
+        <div class="overall-rating">
+
+
+            <strong id="overallRating">
+                4.7
+            </strong>
+
+
+            <div class="overall-stars">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+
+            <p>
+                out of 5
+            </p>
+
+
+            <span>
+                1,248 global ratings
+            </span>
+
+        </div>
+
+
+
+        <div class="rating-bars">
+
+
+            <div class="rating-bar-row">
+
+                <span>
+                    5 star
+                </span>
+
+                <div class="rating-bar">
+
+                    <span style="width:78%">
+                    </span>
+
+                </div>
+
+                <span>
+                    78%
+                </span>
+
+            </div>
+
+
+
+            <div class="rating-bar-row">
+
+                <span>
+                    4 star
+                </span>
+
+                <div class="rating-bar">
+
+                    <span style="width:14%">
+                    </span>
+
+                </div>
+
+                <span>
+                    14%
+                </span>
+
+            </div>
+
+
+
+            <div class="rating-bar-row">
+
+                <span>
+                    3 star
+                </span>
+
+                <div class="rating-bar">
+
+                    <span style="width:5%">
+                    </span>
+
+                </div>
+
+                <span>
+                    5%
+                </span>
+
+            </div>
+
+
+
+            <div class="rating-bar-row">
+
+                <span>
+                    2 star
+                </span>
+
+                <div class="rating-bar">
+
+                    <span style="width:2%">
+                    </span>
+
+                </div>
+
+                <span>
+                    2%
+                </span>
+
+            </div>
+
+
+
+            <div class="rating-bar-row">
+
+                <span>
+                    1 star
+                </span>
+
+                <div class="rating-bar">
+
+                    <span style="width:1%">
+                    </span>
+
+                </div>
+
+                <span>
+                    1%
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <hr>
+
+
+
+    <!-- REVIEW 1 -->
+
+    <article class="review">
+
+
+        <div class="review-rating">
+            ⭐⭐⭐⭐⭐
+        </div>
+
+
+        <h3>
+            Excellent Product
+        </h3>
+
+
+        <p class="review-author">
+            Reviewed by ShopNest Customer
+        </p>
+
+
+        <p>
+            Excellent quality and fast delivery.
+            The product works perfectly and looks great.
+            Very happy with the purchase.
+        </p>
+
+
+        <div class="review-actions">
+
+            <button type="button">
+                Helpful
+            </button>
+
+            <button type="button">
+                Report
+            </button>
+
+        </div>
+
+    </article>
+
+
+
+    <!-- REVIEW 2 -->
+
+    <article class="review">
+
+
+        <div class="review-rating">
+            ⭐⭐⭐⭐⭐
+        </div>
+
+
+        <h3>
+            Very Good Purchase
+        </h3>
+
+
+        <p class="review-author">
+            Reviewed by Verified ShopNest Customer
+        </p>
+
+
+        <p>
+            Good build quality and attractive design.
+            The product arrived safely and was easy to use.
+        </p>
+
+
+        <div class="review-actions">
+
+            <button type="button">
+                Helpful
+            </button>
+
+            <button type="button">
+                Report
+            </button>
+
+        </div>
+
+    </article>
+
+
+
+    <!-- REVIEW 3 -->
+
+    <article class="review">
+
+
+        <div class="review-rating">
+            ⭐⭐⭐⭐
+        </div>
+
+
+        <h3>
+            Worth the Price
+        </h3>
+
+
+        <p class="review-author">
+            Reviewed by ShopNest Customer
+        </p>
+
+
+        <p>
+            Good product with useful features.
+            The overall experience was good and the product
+            provides good value for its price.
+        </p>
+
+
+        <div class="review-actions">
+
+            <button type="button">
+                Helpful
+            </button>
+
+            <button type="button">
+                Report
+            </button>
+
+        </div>
+
+    </article>
+
+
+
+    <!-- REVIEW 4 -->
+
+    <article class="review">
+
+
+        <div class="review-rating">
+            ⭐⭐⭐⭐⭐
+        </div>
+
+
+        <h3>
+            Recommended
+        </h3>
+
+
+        <p class="review-author">
+            Reviewed by Verified ShopNest Customer
+        </p>
+
+
+        <p>
+            The product quality is impressive.
+            Packaging was good and delivery was quick.
+            I would recommend it to other customers.
+        </p>
+
+
+        <div class="review-actions">
+
+            <button type="button">
+                Helpful
+            </button>
+
+            <button type="button">
+                Report
+            </button>
+
+        </div>
+
+    </article>
+
+
+
+    <!-- SEE ALL REVIEWS -->
+
+    <div class="reviews-footer">
+
+        <button
+            type="button"
+            id="showMoreReviews"
+        >
+
+            See all customer reviews
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- EXTRA PRODUCT INFORMATION -->
+
+    <div class="product-highlights">
+
+
+        <div class="highlight-item">
+
+            <span>
+                🚚
+            </span>
+
+            <strong>
+                Free Delivery
+            </strong>
+
+            <small>
+                Across India
+            </small>
+
+        </div>
+
+
+
+        <div class="highlight-item">
+
+            <span>
+                🔄
+            </span>
+
+            <strong>
+                7 Days Replacement
+            </strong>
+
+            <small>
+                Easy replacement
+            </small>
+
+        </div>
+
+
+
+        <div class="highlight-item">
+
+            <span>
+                🔒
+            </span>
+
+            <strong>
+                Secure Payment
+            </strong>
+
+            <small>
+                Safe transactions
+            </small>
+
+        </div>
+
+
+
+        <div class="highlight-item">
+
+            <span>
+                ✓
+            </span>
+
+            <strong>
+                ShopNest Assured
+            </strong>
+
+            <small>
+                Quality checked
+            </small>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RELATED PRODUCTS
+===================================================== -->
+
+<section class="related-products">
+
+
+    <div class="section-heading">
+
+        <h2>
+            You May Also Like
+        </h2>
+
+        <p>
+            <a href="products.html" class="explore-products-link">
+            Explore more products from ShopNest →
+        </a>
+        </p>
+
+    </div>
+
+
+    <div
+        class="related-product-list"
+        id="relatedProductList"
+    >
+
+        <!-- JavaScript can populate this section -->
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <div class="footer-top">
+
+        Back to top ↑
+
+    </div>
+
+
+
+    <div class="footer-content">
+
+
+        <!-- COLUMN 1 -->
+
+        <div>
+
+            <h3>
+                Get to Know Us
+            </h3>
+
+
+            <a href="about.html">
+                About ShopNest
+            </a>
+
+
+            <a href="careers.html">
+                Careers
+            </a>
+
+
+            <a href="press.html">
+                Press Releases
+            </a>
+
+
+            <a href="service.html">
+                Contact Us
+            </a>
+
+        </div>
+
+
+
+        <!-- COLUMN 2 -->
+
+        <div>
+
+            <h3>
+                Make Money With Us
+            </h3>
+
+
+            <a href="sell.html">
+                Sell on ShopNest
+            </a>
+
+
+            <a href="affiliate.html">
+                Become an Affiliate
+            </a>
+
+
+            <a href="advertise.html">
+                Advertise Your Products
+            </a>
+
+        </div>
+
+
+
+        <!-- COLUMN 3 -->
+
+        <div>
+
+            <h3>
+                Customer Support
+            </h3>
+
+
+            <a href="account.html">
+                Your Account
+            </a>
+
+
+            <a href="orders.html">
+                Orders
+            </a>
+
+
+            <a href="returns.html">
+                Returns
+            </a>
+
+
+            <a href="service.html">
+                Help Center
+            </a>
+
+        </div>
+
+
+
+        <!-- COLUMN 4 -->
+
+        <div>
+
+            <h3>
+                Connect With Us
+            </h3>
+
+
+            <a href="https://www.instagram.com/" target="_blank">
+                Instagram
+            </a>
+
+            <a href="https://www.facebook.com/" target="_blank">
+                Facebook
+            </a>
+
+            <a href="https://www.youtube.com/" target="_blank">
+                YouTube
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FOOTER BOTTOM -->
+
+    <div class="footer-bottom">
+
+
+        <h2>
+            ShopNest
+        </h2>
+
+
+        <p>
+            © 2026 ShopNest. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

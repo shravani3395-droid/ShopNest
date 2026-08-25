@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ShopNest - Shopping Cart</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<header class="top-header">
+
+    <div class="logo">
+        Shop<span>Nest</span>
+    </div>
+
+    <div class="location">
+
+        <small>Deliver to</small>
+
+        <strong>
+            📍 India
+        </strong>
+
+    </div>
+
+
+    <div class="search-box">
+
+         <select id="searchCategory" onchange="filterBySearchCategory()">
+
+    <option value="All">All</option>
+
+    <option value="Electronics">Electronics</option>
+
+    <option value="Fashion">Fashion</option>
+
+    <option value="Home">Home</option>
+
+    <option value="Beauty">Beauty</option>
+
+    <option value="Gaming">Gaming</option>
+
+    <option value="Books">Books</option>
+
+</select>
+
+
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search ShopNest"
+        >
+
+
+        <button
+            type="button"
+            onclick="searchProduct()"
+        >
+            🔍
+        </button>
+
+    </div>
+
+
+    <div class="account">
+
+        <small>
+            Hello, Sign in
+        </small>
+
+        <strong>
+            Account & Lists
+        </strong>
+
+    </div>
+
+
+    <div class="orders">
+
+        <small>
+            Returns
+        </small>
+
+        <strong>
+            & Orders
+        </strong>
+
+    </div>
+
+
+    <div
+        class="cart"
+        onclick="openCart()"
+    >
+
+        🛒
+
+        <span id="cartCount">
+            0
+        </span>
+
+        <strong>
+            Cart
+        </strong>
+
+    </div>
+
+</header>
+
+
+<nav class="navbar">
+
+   <div class="menu" id="allMenuButton">
+    ☰ All
+</div>
+
+    <a href="index.html">
+        Home
+    </a>
+
+    <a href="products.html">
+        Products
+    </a>
+
+    <a href="products.html">
+        Today's Deals
+    </a>
+
+    <a href="products.html">
+        Best Sellers
+    </a>
+
+    <a href="products.html">
+        New Releases
+    </a>
+<!-- CATEGORIES -->
+    <a href="products.html?category=Fashion">
+         Fashion
+    </a>
+
+    <a href="products.html?category=Electronics">
+         Electronics
+    </a>
+
+    <a href="products.html?category=Home">
+         Home & kitchen
+    </a>
+
+    <a href="products.html?category=Beauty">
+        Beauty
+    </a>
+    <a href="service.html">
+        Customer Service
+    </a>
+
+</nav>
+<!-- =====================================================
+     ALL MENU SIDEBAR
+===================================================== -->
+
+<div class="all-menu-overlay" id="allMenuOverlay"></div>
+
+<aside class="all-menu-sidebar" id="allMenuSidebar">
+
+    <div class="all-menu-header">
+
+        <h2>
+            👤 Hello, Sign in
+        </h2>
+
+        <button
+            type="button"
+            id="closeAllMenu"
+            class="close-all-menu"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+    <div class="all-menu-content">
+
+        <h3>
+            Shop by Category
+        </h3>
+
+      <a href="products.html?category=Electronics">
+    📱 Electronics
+</a>
+
+<a href="products.html?category=Fashion">
+    👕 Fashion
+</a>
+
+<a href="products.html?category=Home">
+    🏠 Home & Kitchen
+</a>
+
+<a href="products.html?category=Beauty">
+    💄 Beauty
+</a>
+
+<a href="products.html?category=Gaming">
+    🎮 Gaming
+</a>
+
+<a href="products.html?category=Books">
+    📚 Books
+</a>
+        <div class="all-menu-divider"></div>
+
+
+        <h3>
+            Featured
+        </h3>
+
+        <a href="deals.html">
+            🔥 Today's Deals
+        </a>
+
+        <a href="best-sellers.html">
+            ⭐ Best Sellers
+        </a>
+
+        <a href="new-releases.html">
+            🆕 New Releases
+        </a>
+
+
+        <div class="all-menu-divider"></div>
+
+
+        <h3>
+            Help & Settings
+        </h3>
+
+        <a href="account.html">
+            👤 Your Account
+        </a>
+
+        <a href="service.html">
+            ⚙️ Customer Service
+        </a>
+
+    </div>
+
+</aside>
+
+
+
+
+<main class="cart-page">
+
+
+    <div class="cart-container">
+
+        <h1>
+            Shopping Cart
+        </h1>
+
+        <div id="cartItems"></div>
+
+    </div>
+
+
+    <aside class="cart-summary">
+
+        <h2>
+            Order Summary
+        </h2>
+
+
+        <div class="summary-row">
+
+            <span>
+                Items
+            </span>
+
+            <span id="summaryItems">
+                0
+            </span>
+
+        </div>
+
+
+        <div class="summary-row">
+
+            <span>
+                Subtotal
+            </span>
+
+            <span id="cartSubtotal">
+                ₹0
+            </span>
+
+        </div>
+
+
+        <div class="summary-row">
+
+            <span>
+                Delivery
+            </span>
+
+            <span class="free">
+                FREE
+            </span>
+
+        </div>
+
+
+        <hr>
+
+
+        <div class="summary-total">
+
+            <span>
+                Total
+            </span>
+
+            <span id="cartTotal">
+                ₹0
+            </span>
+
+        </div>
+
+
+        <button
+            class="checkout-button"
+            onclick="checkout()"
+        >
+            Proceed to Checkout
+        </button>
+
+    </aside>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-top">
+        Back to top ↑
+    </div>
+
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>
+                Get to Know Us
+            </h3>
+
+            <a href="about.html">
+                About ShopNest
+            </a>
+
+            <a href="careers.html">
+                Careers
+            </a>
+
+            <a href="service.html">
+                Contact Us
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Customer Support
+            </h3>
+
+            <a href="account.html">
+                Your Account
+            </a>
+
+            <a href="orders.html">
+                Orders
+            </a>
+
+            <a href="returns.html">
+                Returns
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Shop With Us
+            </h3>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="products.html">
+                Today's Deals
+            </a>
+
+            <a href="products.html">
+                Best Sellers
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Connect With Us
+            </h3>
+  <a href="https://www.instagram.com/" target="_blank">
+                Instagram
+            </a>
+
+             <a href="https://www.facebook.com/" target="_blank">
+                Facebook
+            </a>
+
+            <a href="https://www.youtube.com/" target="_blank">
+                YouTube
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <h2>
+            ShopNest
+        </h2>
+
+        <p>
+            © 2026 ShopNest. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

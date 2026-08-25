@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ShopNest - All Products</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="top-header">
+
+    <!-- LOGO -->
+
+    <div class="logo">
+        Shop<span>Nest</span>
+    </div>
+
+
+    <!-- LOCATION -->
+
+    <div class="location">
+
+        <small>
+            Deliver to
+        </small>
+
+        <strong>
+            📍 India
+        </strong>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <form
+        class="search-box"
+        onsubmit="searchProduct(); return false;"
+    >
+
+        
+           <select id="searchCategory" onchange="filterBySearchCategory()">
+
+    <option value="All">All</option>
+
+    <option value="Electronics">Electronics</option>
+
+    <option value="Fashion">Fashion</option>
+
+    <option value="Home">Home</option>
+
+    <option value="Beauty">Beauty</option>
+
+    <option value="Gaming">Gaming</option>
+
+    <option value="Books">Books</option>
+
+</select>
+
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search ShopNest"
+            autocomplete="off"
+        >
+
+
+        <button
+            type="submit"
+            aria-label="Search"
+        >
+            🔍
+        </button>
+
+    </form>
+
+
+    <!-- ACCOUNT -->
+
+    <div class="account">
+
+        <small>
+            Hello, Sign in
+        </small>
+
+        <strong>
+            Account & Lists
+        </strong>
+
+    </div>
+
+
+    <!-- ORDERS -->
+
+    <div class="orders">
+
+        <small>
+            Returns
+        </small>
+
+        <strong>
+            & Orders
+        </strong>
+
+    </div>
+
+
+    <!-- CART -->
+
+    <div
+        class="cart"
+        onclick="openCart()"
+        role="button"
+        tabindex="0"
+    >
+
+        🛒
+
+        <span id="cartCount">
+            0
+        </span>
+
+        <strong>
+            Cart
+        </strong>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav class="navbar">
+
+    <div class="menu" id="allMenuButton">
+    ☰ All
+</div>
+
+    <a href="index.html">
+        Home
+    </a>
+
+
+    <a href="products.html">
+        Products
+    </a>
+
+
+   
+    <a href="deals.html">
+    Today's Deals
+    </a>
+
+   <a href="best-sellers.html">
+    Best Sellers
+</a>
+
+<a href="new-releases.html">
+    New Releases
+</a>
+
+<!-- CATEGORIES -->
+    <a href="products.html?category=Fashion">
+         Fashion
+    </a>
+
+    <a href="products.html?category=Electronics">
+         Electronics
+    </a>
+
+    <a href="products.html?category=Home">
+         Home & kitchen
+    </a>
+
+    <a href="products.html?category=Beauty">
+        Beauty
+    </a>
+    <a href="service.html">
+        Customer Service
+    </a>
+
+</nav>
+
+<!-- =====================================================
+     ALL MENU SIDEBAR
+===================================================== -->
+
+<div class="all-menu-overlay" id="allMenuOverlay"></div>
+
+<aside class="all-menu-sidebar" id="allMenuSidebar">
+
+    <div class="all-menu-header">
+
+        <h2>
+            👤 Hello, Sign in
+        </h2>
+
+        <button
+            type="button"
+            id="closeAllMenu"
+            class="close-all-menu"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+    <div class="all-menu-content">
+
+        <h3>
+            Shop by Category
+        </h3>
+
+       <a href="products.html?category=Electronics">
+    📱 Electronics
+</a>
+
+<a href="products.html?category=Fashion">
+    👕 Fashion
+</a>
+
+<a href="products.html?category=Home">
+    🏠 Home & Kitchen
+</a>
+
+<a href="products.html?category=Beauty">
+    💄 Beauty
+</a>
+
+<a href="products.html?category=Gaming">
+    🎮 Gaming
+</a>
+
+<a href="products.html?category=Books">
+    📚 Books
+</a>
+
+        <div class="all-menu-divider"></div>
+
+
+        <h3>
+            Featured
+        </h3>
+
+        <a href="deals.html">
+            🔥 Today's Deals
+        </a>
+
+        <a href="best-sellers.html">
+            ⭐ Best Sellers
+        </a>
+
+        <a href="new-releases.html">
+            🆕 New Releases
+        </a>
+
+
+        <div class="all-menu-divider"></div>
+
+
+        <h3>
+            Help & Settings
+        </h3>
+
+        <a href="account.html">
+            👤 Your Account
+        </a>
+
+        <a href="service.html">
+            ⚙️ Customer Service
+        </a>
+
+    </div>
+
+</aside>
+
+
+
+
+<!-- =====================================================
+     BREADCRUMB
+===================================================== -->
+
+<!-- =====================================================
+         BEST SELLERS HERO
+    ====================================================== -->
+
+    <section class="best-sellers-hero">
+
+        <div class="best-sellers-hero-content">
+
+            <span class="hero-tag">
+                🩷 YOUR FAVORITES
+            </span>
+
+            <h1>
+                Our Products
+            </h1>
+
+            <p>
+Explore the top-rated electronics, fashion, and everyday essentials our community loves most.
+            </p>
+
+            <a
+                href="#bestSellerProducts"
+                class="hero-button"
+            >
+                Shop our products →
+            </a>
+ 
+            
+        </div>
+
+    </section>
+
+
+    
+
+           
+
+<!-- =====================================================
+     PAGE INTRODUCTION
+===================================================== -->
+
+<section class="section">
+
+    <h1>
+        All Products
+    </h1>
+
+    <p>
+        Explore our wide range of products and discover
+        great deals across different categories.
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRODUCT AREA
+===================================================== -->
+
+<section class="product-area" id="bestSellerProducts">
+        <!-- SORT PRODUCTS -->
+
+    <div class="sort-box">
+
+        <label for="sortSelect">
+            Sort By:
+        </label>
+
+        <select id="sortSelect">
+
+            <option value="default">
+                Featured
+            </option>
+
+            <option value="price-low">
+                Price: Low to High
+            </option>
+
+            <option value="price-high">
+                Price: High to Low
+            </option>
+
+            <option value="rating">
+                Customer Rating
+            </option>
+
+            <option value="discount">
+                Discount
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- =================================================
+         FILTER SIDEBAR
+    ================================================== -->
+
+    <aside class="filter-box">
+
+        <h3>
+            Filter Products
+        </h3>
+
+
+        <!-- CATEGORY -->
+
+        <h4>
+            Category
+        </h4>
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                value="Electronics"
+                class="category-filter"
+            >
+
+            Electronics
+
+        </label>
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                value="Fashion"
+                class="category-filter"
+            >
+
+            Fashion
+
+        </label>
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                value="Home"
+                class="category-filter"
+            >
+
+            Home
+
+        </label>
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                value="Beauty"
+                class="category-filter"
+            >
+
+            Beauty
+
+        </label>
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                value="Gaming"
+                class="category-filter"
+            >
+
+            Gaming
+
+        </label>
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                value="Books"
+                class="category-filter"
+            >
+
+            Books
+
+        </label>
+
+
+
+        <!-- PRICE -->
+
+        <h4>
+            Price
+        </h4>
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                class="price-filter"
+                value="under1000"
+            >
+
+            Under ₹1,000
+
+        </label>
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                class="price-filter"
+                value="1000-5000"
+            >
+
+            ₹1,000 - ₹5,000
+
+        </label>
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                class="price-filter"
+                value="5000-20000"
+            >
+
+            ₹5,000 - ₹20,000
+
+        </label>
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                class="price-filter"
+                value="above20000"
+            >
+
+            Above ₹20,000
+
+        </label>
+
+
+
+        <!-- RATING -->
+
+        <h4>
+            Customer Rating
+        </h4>
+
+
+        <label>
+            ⭐⭐⭐⭐⭐
+        </label>
+
+
+        <label>
+            ⭐⭐⭐⭐ & above
+        </label>
+
+
+        <label>
+            ⭐⭐⭐ & above
+        </label>
+
+    </aside>
+
+
+
+    <!-- =================================================
+         PRODUCT LIST
+    ================================================== -->
+
+    <div
+        class="product-list"
+        id="productList"
+    >
+
+        <!--
+            PRODUCTS WILL BE GENERATED
+            AUTOMATICALLY BY script.js
+        -->
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <div
+        class="footer-top"
+        onclick="window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })"
+    >
+
+        Back to top ↑
+
+    </div>
+
+
+    <div class="footer-content">
+
+
+        <div>
+
+            <h3>
+                Get to Know Us
+            </h3>
+
+            <a href="about.html">
+                About ShopNest
+            </a>
+
+            <a href="careers.html">
+                Careers
+            </a>
+
+            <a href="press.html">
+                Press Releases
+            </a>
+
+            <a href="service.html">
+                Contact Us
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Make Money With Us
+            </h3>
+
+            <a href="sell.html">
+                Sell on ShopNest
+            </a>
+
+            <a href="affiliate.html">
+                Become an Affiliate
+            </a>
+
+            <a href="advertise.html">
+                Advertise Your Products
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Customer Support
+            </h3>
+
+            <a href="account.html">
+                Your Account
+            </a>
+
+            <a href="orders.html">
+                Orders
+            </a>
+
+            <a href="returns.html">
+                Returns
+            </a>
+
+            <a href="service.html">
+                Help Center
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Connect With Us
+            </h3>
+
+            <a href="https://www.instagram.com/" target="_blank">
+                Instagram
+            </a>
+
+            <a href="https://www.facebook.com/" target="_blank">
+                Facebook
+            </a>
+
+            <a href="https://www.youtube.com/" target="_blank">
+                YouTube
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <h2>
+            ShopNest
+        </h2>
+
+        <p>
+            © 2026 ShopNest. All rights reserved.
+        </p>
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

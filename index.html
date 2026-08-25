@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopNest - Online Shopping</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="top-header">
+
+        <!-- LOGO -->
+        <a href="index.html" class="logo">
+            Shop<span>Nest</span>
+        </a>
+
+
+        <!-- LOCATION -->
+      
+<!-- LOCATION -->
+
+<div
+    class="location"
+    id="locationButton"
+    onclick="openLocationPopup()"
+    role="button"
+    tabindex="0"
+>
+    <small>
+        Deliver to
+    </small>
+
+    <strong>
+        📍 India
+    </strong>
+</div>
+
+        <!-- SEARCH -->
+        <form
+            class="search-box"
+            onsubmit="searchProduct(); return false;"
+        >
+
+             <select id="searchCategory" onchange="filterBySearchCategory()">
+
+    <option value="All">All</option>
+
+    <option value="Electronics">Electronics</option>
+
+    <option value="Fashion">Fashion</option>
+
+    <option value="Home">Home</option>
+
+    <option value="Beauty">Beauty</option>
+
+    <option value="Gaming">Gaming</option>
+
+    <option value="Books">Books</option>
+
+</select>
+
+
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search ShopNest"
+                autocomplete="off"
+            >
+
+
+            <button type="submit">
+                🔍
+            </button>
+
+        </form>
+
+
+<!-- ACCOUNT -->
+<a href="account.html" class="account" id="accountLink">
+
+    <small id="accountName">
+        Hello, Sign in
+    </small>
+
+    <strong>
+        Account & Lists
+    </strong>
+
+</a>
+
+       <div
+    class="orders"
+    onclick="window.location.href='orders.html'"
+    style="cursor: pointer;"
+    role="button"
+    tabindex="0"
+>
+
+    <small>
+        Returns
+    </small>
+
+    <strong>
+        & Orders
+    </strong>
+
+</div>
+
+        <!-- CART -->
+        <div
+            class="cart"
+            onclick="openCart()"
+        >
+
+            🛒
+
+            <span id="cartCount">0</span>
+
+            <strong>Cart</strong>
+
+        </div>
+
+    </header>
+
+<!-- =====================================================
+     DELIVERY LOCATION POPUP
+===================================================== -->
+
+<div class="location-overlay" id="locationOverlay">
+
+    <div class="location-popup">
+
+        <button
+            class="location-close"
+            onclick="closeLocationPopup()"
+        >
+            ✕
+        </button>
+
+        <h2>
+            Choose your delivery location
+        </h2>
+
+        <p>
+            Enter your location to see products and
+            delivery options available in your area.
+        </p>
+
+        <label for="deliveryLocation">
+            Delivery location
+        </label>
+
+        <input
+            type="text"
+            id="deliveryLocation"
+            placeholder="Enter city, area or PIN code"
+        >
+
+        <button
+            class="location-confirm"
+            onclick="saveDeliveryLocation()"
+        >
+            Save Location
+        </button>
+
+        <div class="current-location">
+            📍 Currently selected:
+            <strong id="selectedLocation">
+                India
+            </strong>
+        </div>
+
+    </div>
+
+</div>
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    
+<nav class="navbar">
+
+    
+    <div class="menu" id="allMenuButton">
+    ☰ All
+</div>
+
+    <a href="index.html">
+        Home
+    </a>
+
+    <a href="products.html">
+        Products
+    </a>
+
+    <a href="deals.html">
+        Today's Deals
+    </a>
+
+    <a href="best-sellers.html">
+        Best Sellers
+    </a>
+
+    <a href="new-releases.html">
+        New Releases
+    </a>
+
+     <!-- CATEGORIES -->
+    <a href="products.html?category=Fashion">
+         Fashion
+    </a>
+
+    <a href="products.html?category=Electronics">
+         Electronics
+    </a>
+
+    <a href="products.html?category=Home">
+         Home & kitchen
+    </a>
+
+    <a href="products.html?category=Beauty">
+        Beauty
+    </a>
+    <a href="service.html">
+        Customer Service
+    </a>
+ 
+    
+</nav>
+
+<!-- =====================================================
+     ALL MENU SIDEBAR
+===================================================== -->
+
+<div class="all-menu-overlay" id="allMenuOverlay"></div>
+
+<aside class="all-menu-sidebar" id="allMenuSidebar">
+
+    <div class="all-menu-header">
+
+       <h2 id="allMenuUserName">
+    👤 Hello, Sign in
+</h2>
+
+        <button
+            type="button"
+            id="closeAllMenu"
+            class="close-all-menu"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+    <div class="all-menu-content">
+
+        <h3>
+            Shop by Category
+        </h3>
+
+        <a href="products.html?category=Electronics">
+    📱 Electronics
+</a>
+
+<a href="products.html?category=Fashion">
+    👕 Fashion
+</a>
+
+<a href="products.html?category=Home">
+    🏠 Home & Kitchen
+</a>
+
+<a href="products.html?category=Beauty">
+    💄 Beauty
+</a>
+
+<a href="products.html?category=Gaming">
+    🎮 Gaming
+</a>
+
+<a href="products.html?category=Books">
+    📚 Books
+</a>
+
+        <div class="all-menu-divider"></div>
+
+
+        <h3>
+            Featured
+        </h3>
+
+        <a href="deals.html">
+            🔥 Today's Deals
+        </a>
+
+        <a href="best-sellers.html">
+            ⭐ Best Sellers
+        </a>
+
+        <a href="new-releases.html">
+            🆕 New Releases
+        </a>
+
+
+        <div class="all-menu-divider"></div>
+
+
+       <h3>
+    Help & Settings
+</h3>
+
+<a href="account.html">
+    👤 Your Account
+</a>
+
+<a href="orders.html">
+    📦 Your Orders
+</a>
+
+<a href="service.html">
+    ⚙️ Customer Service
+</a>
+
+<a href="#" onclick="logoutUser(); return false;">
+    🚪 Sign Out
+</a>
+
+    </div>
+
+</aside>
+
+    <!-- =====================================================
+         HERO SECTION
+         BACKGROUND IMAGE + SHOP NOW BUTTON
+    ====================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <span class="hero-tag">
+                WELCOME TO SHOPNEST
+            </span>
+
+            <h1>
+                Everything You Need,
+                <br>
+                All in One Place
+            </h1>
+
+            <p>
+                Discover amazing products, exclusive deals,
+                and fast delivery at ShopNest.
+            </p>
+
+            <button
+                class="hero-button"
+                onclick="shopNow()"
+            >
+                Shop Now →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SHOP BY CATEGORY
+    ====================================================== -->
+
+    <section class="section category-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <h2>
+                    Shop by Category
+                </h2>
+
+                <p>
+                    Find everything you need from our popular categories.
+                </p>
+
+            </div>
+
+            <a href="products.html">
+                View All →
+            </a>
+
+        </div>
+
+
+        <div class="categories">
+
+
+            <!-- ELECTRONICS -->
+
+            <a
+                href="products.html?category=Electronics"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    
+                </div>
+
+                <h3>
+                    Electronics
+                </h3>
+
+                <p>
+                    Smartphones, laptops & more
+                </p>
+
+            </a>
+
+
+            <!-- FASHION -->
+
+            <a
+                href="products.html?category=Fashion"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    
+                </div>
+
+                <h3>
+                    Fashion
+                </h3>
+
+                <p>
+                    Clothing, shoes & accessories
+                </p>
+
+            </a>
+
+
+            <!-- HOME -->
+
+            <a
+                href="products.html?category=Home"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    
+                </div>
+
+                <h3>
+                    Home
+                </h3>
+
+                <p>
+                    Furniture & home essentials
+                </p>
+
+            </a>
+
+
+            <!-- BEAUTY -->
+
+            <a
+                href="products.html?category=Beauty"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    
+                </div>
+
+                <h3>
+                    Beauty
+                </h3>
+
+                <p>
+                    Beauty & personal care
+                </p>
+
+            </a>
+
+
+            <!-- GAMING -->
+
+            <a
+                href="products.html?category=Gaming"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    
+                </div>
+
+                <h3>
+                    Gaming
+                </h3>
+
+                <p>
+                    Games & gaming accessories
+                </p>
+
+            </a>
+
+
+            <!-- BOOKS -->
+
+            <a
+                href="products.html?category=Books"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    
+                </div>
+
+                <h3>
+                    Books
+                </h3>
+
+                <p>
+                    Books & educational products
+                </p>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TODAY'S DEALS
+    ====================================================== -->
+
+    <section class="section deals-section">
+
+        <div class="section-heading">
+
+            <h2>
+                Today's Deals
+            </h2>
+
+            <a href="products.html">
+                See All Deals →
+            </a>
+
+        </div>
+
+
+        <div class="products">
+
+
+            <!-- HEADPHONES -->
+
+            <div class="product-card">
+
+                <div class="discount">
+                    20% OFF
+                </div>
+
+                <div class="product-image">
+
+                    <img
+                        src="images/headphones.jpg"
+                        alt="Wireless Headphones"
+                    >
+
+                </div>
+
+                <h3>
+                    Wireless Headphones
+                </h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <p class="price">
+                    ₹1,999
+                </p>
+
+                <p class="old-price">
+                    ₹2,499
+                </p>
+
+                <button
+                    class="add-cart-button"
+                    onclick="addToCart('Wireless Headphones', 1999)"
+                >
+                    Add to Cart
+                </button>
+
+                <a
+                    href="product.html?product=Wireless%20Headphones"
+                    class="view-details-button"
+                >
+                    View Details
+                </a>
+
+            </div>
+
+
+            <!-- SMART WATCH -->
+
+            <div class="product-card">
+
+                <div class="discount">
+                    15% OFF
+                </div>
+
+                <div class="product-image">
+
+                    <img
+                        src="images/smartwatch.jpg"
+                        alt="Smart Watch"
+                    >
+
+                </div>
+
+                <h3>
+                    Smart Watch
+                </h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐
+                </div>
+
+                <p class="price">
+                    ₹2,499
+                </p>
+
+                <p class="old-price">
+                    ₹2,999
+                </p>
+
+                <button
+                    class="add-cart-button"
+                    onclick="addToCart('Smart Watch', 2499)"
+                >
+                    Add to Cart
+                </button>
+
+                <a
+                    href="product.html?product=Smart%20Watch"
+                    class="view-details-button"
+                >
+                    View Details
+                </a>
+
+            </div>
+
+
+            <!-- RUNNING SHOES -->
+
+            <div class="product-card">
+
+                <div class="discount">
+                    30% OFF
+                </div>
+
+                <div class="product-image">
+
+                    <img
+                        src="images/shoes.jpg"
+                        alt="Running Shoes"
+                    >
+
+                </div>
+
+                <h3>
+                    Running Shoes
+                </h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <p class="price">
+                    ₹1,399
+                </p>
+
+                <p class="old-price">
+                    ₹1,999
+                </p>
+
+                <button
+                    class="add-cart-button"
+                    onclick="addToCart('Running Shoes', 1399)"
+                >
+                    Add to Cart
+                </button>
+
+                <a
+                    href="product.html?product=Running%20Shoes"
+                    class="view-details-button"
+                >
+                    View Details
+                </a>
+
+            </div>
+
+
+            <!-- BACKPACK -->
+
+            <div class="product-card">
+
+                <div class="discount">
+                    25% OFF
+                </div>
+
+                <div class="product-image">
+
+                    <img
+                        src="images/backpack.jpg"
+                        alt="Travel Backpack"
+                    >
+
+                </div>
+
+                <h3>
+                    Travel Backpack
+                </h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐
+                </div>
+
+                <p class="price">
+                    ₹899
+                </p>
+
+                <p class="old-price">
+                    ₹1,199
+                </p>
+
+                <button
+                    class="add-cart-button"
+                    onclick="addToCart('Travel Backpack', 899)"
+                >
+                    Add to Cart
+                </button>
+
+                <a
+                    href="product.html?product=Travel%20Backpack"
+                    class="view-details-button"
+                >
+                    View Details
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         RECOMMENDED PRODUCTS
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <h2>
+                Recommended for You
+            </h2>
+
+            <a href="products.html">
+                View More →
+            </a>
+
+        </div>
+
+
+        <div class="products">
+
+
+            <!-- LAPTOP -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/laptop.jpg"
+                        alt="Ultra Laptop"
+                    >
+
+                </div>
+
+                <h3>
+                    Ultra Laptop
+                </h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <p class="price">
+                    ₹54,999
+                </p>
+
+                <button
+                    class="add-cart-button"
+                    onclick="addToCart('Ultra Laptop', 54999)"
+                >
+                    Add to Cart
+                </button>
+
+                <a
+                    href="product.html?product=Ultra%20Laptop"
+                    class="view-details-button"
+                >
+                    View Details
+                </a>
+
+            </div>
+
+
+            <!-- SMARTPHONE -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/smartphone.jpg"
+                        alt="Smartphone Pro"
+                    >
+
+                </div>
+
+                <h3>
+                    Smartphone Pro
+                </h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <p class="price">
+                    ₹24,999
+                </p>
+
+                <button
+                    class="add-cart-button"
+                    onclick="addToCart('Smartphone Pro', 24999)"
+                >
+                    Add to Cart
+                </button>
+
+                <a
+                    href="product.html?product=Smartphone%20Pro"
+                    class="view-details-button"
+                >
+                    View Details
+                </a>
+
+            </div>
+
+
+            <!-- HANDBAG -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/handbag.jpg"
+                        alt="Premium Handbag"
+                    >
+
+                </div>
+
+                <h3>
+                    Premium Handbag
+                </h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <p class="price">
+                    ₹1,299
+                </p>
+
+                <button
+                    class="add-cart-button"
+                    onclick="addToCart('Premium Handbag', 1299)"
+                >
+                    Add to Cart
+                </button>
+
+                <a
+                    href="product.html?product=Premium%20Handbag"
+                    class="view-details-button"
+                >
+                    View Details
+                </a>
+
+            </div>
+
+
+            <!-- MONITOR -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/monitor.jpg"
+                        alt="4K Monitor"
+                    >
+
+                </div>
+
+                <h3>
+                    4K Monitor
+                </h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <p class="price">
+                    ₹12,999
+                </p>
+
+                <button
+                    class="add-cart-button"
+                    onclick="addToCart('4K Monitor', 12999)"
+                >
+                    Add to Cart
+                </button>
+
+                <a
+                    href="product.html?product=4K%20Monitor"
+                    class="view-details-button"
+                >
+                    View Details
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         WHY SHOPNEST
+    ====================================================== -->
+
+    <section class="features">
+
+        <div>
+
+            <span>🚚</span>
+
+            <h3>
+                Fast Delivery
+            </h3>
+
+            <p>
+                Quick and reliable delivery
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <span>🔒</span>
+
+            <h3>
+                Secure Payments
+            </h3>
+
+            <p>
+                Your payments are protected
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <span>↩️</span>
+
+            <h3>
+                Easy Returns
+            </h3>
+
+            <p>
+                Simple and hassle-free returns
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <span>💬</span>
+
+            <h3>
+                24/7 Support
+            </h3>
+
+            <p>
+                We're here to help
+            </p>
+
+        </div>
+
+    </section>
+
+
+   <!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <!-- BACK TO TOP -->
+
+    <div
+        class="footer-top"
+        onclick="window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })"
+    >
+        Back to top ↑
+    </div>
+
+
+    <!-- FOOTER CONTENT -->
+
+    <div class="footer-content">
+
+
+        <!-- GET TO KNOW US -->
+
+        <div>
+
+            <h3>
+                Get to Know Us
+            </h3>
+
+            <a href="about.html">
+                About ShopNest
+            </a>
+
+            <a href="careers.html">
+                Careers
+            </a>
+
+            <a href="press.html">
+                Press Releases
+            </a>
+
+            <a href="service.html">
+                Contact Us
+            </a>
+
+        </div>
+
+
+        <!-- MAKE MONEY WITH US -->
+
+        <div>
+
+            <h3>
+                Make Money With Us
+            </h3>
+
+            <a href="sell.html">
+                Sell on ShopNest
+            </a>
+
+            <a href="affiliate.html">
+                Become an Affiliate
+            </a>
+
+            <a href="advertise.html">
+                Advertise Your Products
+            </a>
+
+        </div>
+
+
+        <!-- CUSTOMER SUPPORT -->
+
+        <div>
+
+            <h3>
+                Customer Support
+            </h3>
+
+            <a href="account.html">
+                Your Account
+            </a>
+
+            <a href="orders.html">
+                Orders
+            </a>
+
+            <a href="returns.html">
+                Returns
+            </a>
+
+            <a href="service.html">
+                Help Center
+            </a>
+
+        </div>
+
+
+        <!-- CONNECT WITH US -->
+
+        <div>
+
+            <h3>
+                Connect With Us
+            </h3>
+
+            <a href="https://www.instagram.com/" target="_blank">
+                Instagram
+            </a>
+
+            <a href="https://www.facebook.com/" target="_blank">
+                Facebook
+            </a>
+
+            <a href="https://www.youtube.com/" target="_blank">
+                YouTube
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+
+    <div class="footer-bottom">
+
+        <h2>
+            ShopNest
+        </h2>
+
+        <p>
+            © 2026 ShopNest. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

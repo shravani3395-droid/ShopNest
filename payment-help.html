@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Payment Help - ShopNest</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+
+
+
+<!-- =====================================================
+     ALL MENU
+===================================================== -->
+
+<div
+    class="all-menu-overlay"
+    id="allMenuOverlay"
+></div>
+
+
+<aside
+    class="all-menu-sidebar"
+    id="allMenuSidebar"
+>
+
+    <div class="all-menu-header">
+
+        <h2>
+            👤 Hello, Sign in
+        </h2>
+
+
+        <button
+            type="button"
+            id="closeAllMenu"
+            class="close-all-menu"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+    <div class="all-menu-content">
+
+        <h3>
+            Shop by Category
+        </h3>
+
+
+        <a href="products.html">
+            🛍️ All Products
+        </a>
+
+
+        <a href="products.html?category=Electronics">
+            📱 Electronics
+        </a>
+
+
+        <a href="products.html?category=Fashion">
+            👕 Fashion
+        </a>
+
+
+        <a href="products.html?category=Home">
+            🏠 Home & kitchen
+        </a>
+
+
+        <a href="products.html?category=Beauty">
+            💄 Beauty
+        </a>
+
+
+        <a href="products.html?category=Gaming">
+            🎮 Gaming
+        </a>
+
+
+        <a href="products.html?category=Books">
+            📚 Books
+        </a>
+
+
+        <div class="all-menu-divider"></div>
+
+
+        <h3>
+            Featured
+        </h3>
+
+
+        <a href="deals.html">
+            🔥 Today's Deals
+        </a>
+
+
+        <a href="best-sellers.html">
+            ⭐ Best Sellers
+        </a>
+
+
+        <a href="new-releases.html">
+            🆕 New Releases
+        </a>
+
+
+        <div class="all-menu-divider"></div>
+
+
+        <h3>
+            Help & Settings
+        </h3>
+
+
+        <a href="account.html">
+            👤 Your Account
+        </a>
+
+
+        <a href="orders.html">
+            📦 Your Orders
+        </a>
+
+
+        <a href="service.html">
+            ⚙️ Customer Service
+        </a>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     PAYMENT HERO
+===================================================== -->
+
+<section class="customer-service-hero">
+
+    <div class="customer-service-hero-content">
+
+        <span class="customer-service-tag">
+            SHOPNEST SUPPORT
+        </span>
+
+
+        <h1>
+            Payment Help
+        </h1>
+
+
+        <p>
+            Get help with payment methods, failed payments,
+            payment status, refunds and other payment questions.
+        </p>
+
+
+        <div class="customer-search">
+
+            <input
+                type="text"
+                id="helpSearch"
+                placeholder="Search payment help..."
+            >
+
+
+            <button onclick="searchHelp()">
+                🔍 Search
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAYMENT OPTIONS
+===================================================== -->
+
+<section class="customer-quick-help">
+
+    <h2>
+        Payment & Billing Help
+    </h2>
+
+
+    <p class="customer-section-description">
+        Select a payment topic to find useful information.
+    </p>
+
+
+    <div class="help-grid">
+
+
+        <div class="help-card">
+
+            <div class="help-icon">
+                💳
+            </div>
+
+
+            <h3>
+                Payment Methods
+            </h3>
+
+
+            <p>
+                Learn about the payment options available
+                during ShopNest checkout.
+            </p>
+
+
+            <a href="#methods">
+                View Methods →
+            </a>
+
+        </div>
+
+
+        <div class="help-card">
+
+            <div class="help-icon">
+                📱
+            </div>
+
+
+            <h3>
+                UPI Payments
+            </h3>
+
+
+            <p>
+                Get information about completing payments
+                using supported UPI options.
+            </p>
+
+
+            <a href="#upi">
+                UPI Help →
+            </a>
+
+        </div>
+
+
+        <div class="help-card">
+
+            <div class="help-icon">
+                ❌
+            </div>
+
+
+            <h3>
+                Payment Failed
+            </h3>
+
+
+            <p>
+                Find possible solutions when your payment
+                does not complete successfully.
+            </p>
+
+
+            <a href="#failed">
+                Payment Failed →
+            </a>
+
+        </div>
+
+
+        <div class="help-card">
+
+            <div class="help-icon">
+                💰
+            </div>
+
+
+            <h3>
+                Refunds
+            </h3>
+
+
+            <p>
+                Learn about refund processing and payment
+                reversal information.
+            </p>
+
+
+            <a href="#refund">
+                Refund Help →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAYMENT METHODS
+===================================================== -->
+
+<section
+    class="customer-faq"
+    id="methods"
+>
+
+    <h2>
+        Payment Methods
+    </h2>
+
+
+    <div class="faq-container">
+
+        <details open>
+
+            <summary>
+                Credit and Debit Cards
+            </summary>
+
+            <p>
+                Customers may use supported credit or debit
+                cards during checkout depending on the
+                available payment configuration.
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                UPI
+            </summary>
+
+            <p>
+                Supported UPI payment options can be selected
+                during checkout when available.
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Cash on Delivery
+            </summary>
+
+            <p>
+                Cash on Delivery can be offered for eligible
+                products and locations depending on the
+                ShopNest checkout configuration.
+            </p>
+
+        </details>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     UPI
+===================================================== -->
+
+<section
+    class="customer-faq"
+    id="upi"
+>
+
+    <h2>
+        UPI Payment Help
+    </h2>
+
+
+    <div class="faq-container">
+
+        <details open>
+
+            <summary>
+                My UPI payment failed. What should I do?
+            </summary>
+
+            <p>
+                Check your internet connection, verify your
+                payment details and try the payment again.
+                If the amount was deducted, check the payment
+                status before attempting another payment.
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Money was deducted but my order was not confirmed
+            </summary>
+
+            <p>
+                Check your order status and payment status.
+                If the transaction remains unresolved, contact
+                ShopNest Customer Service.
+            </p>
+
+        </details>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FAILED PAYMENT
+===================================================== -->
+
+<section
+    class="customer-faq"
+    id="failed"
+>
+
+    <h2>
+        Payment Failed
+    </h2>
+
+
+    <div class="faq-container">
+
+        <details open>
+
+            <summary>
+                Why did my payment fail?
+            </summary>
+
+            <p>
+                Payments can fail because of incorrect payment
+                details, temporary network issues, bank restrictions
+                or payment-service problems.
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Can I try the payment again?
+            </summary>
+
+            <p>
+                Yes. After confirming that the previous transaction
+                was unsuccessful, you can try another supported
+                payment method.
+            </p>
+
+        </details>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     REFUNDS
+===================================================== -->
+
+<section
+    class="customer-faq"
+    id="refund"
+>
+
+    <h2>
+        Payment Refunds
+    </h2>
+
+
+    <div class="faq-container">
+
+        <details open>
+
+            <summary>
+                How do payment refunds work?
+            </summary>
+
+            <p>
+                Once a refund is approved, the refund is processed
+                according to the applicable payment method and
+                ShopNest order process.
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                My refund has not arrived
+            </summary>
+
+            <p>
+                Check your order and refund status first. If the
+                refund remains pending beyond the expected processing
+                period, contact ShopNest support.
+            </p>
+
+        </details>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section class="customer-contact">
+
+    <div class="customer-contact-content">
+
+        <h2>
+            Need More Payment Help?
+        </h2>
+
+
+        <p>
+            Contact ShopNest Customer Service for assistance
+            with payment-related issues.
+        </p>
+
+
+        <button
+            class="contact-support-button"
+            onclick="contactSupport()"
+        >
+            Contact Support
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div
+        class="footer-top"
+        onclick="window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })"
+    >
+        Back to top ↑
+    </div>
+
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>
+                Get to Know Us
+            </h3>
+
+            <a href="index.html">
+                About ShopNest
+            </a>
+
+            <a href="careers.html">
+                Careers
+            </a>
+
+            <a href="press.html">
+                Press Releases
+            </a>
+
+            <a href="service.html">
+                Contact Us
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Make Money With Us
+            </h3>
+
+            <a href="sell.html">
+                Sell on ShopNest
+            </a>
+
+            <a href="affiliate.html">
+                Become an Affiliate
+            </a>
+
+            <a href="advertise.html">
+                Advertise Your Products
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Customer Support
+            </h3>
+
+            <a href="account.html">
+                Your Account
+            </a>
+
+            <a href="orders.html">
+                Orders
+            </a>
+
+            <a href="returns.html">
+                Returns
+            </a>
+
+            <a href="service.html">
+                Help Center
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Connect With Us
+            </h3>
+
+            <a href="https://www.instagram.com/" target="_blank">
+                Instagram
+            </a>
+
+            <a href="https://www.facebook.com/" target="_blank">
+                Facebook
+            </a>
+
+            <a href="https://www.youtube.com/" target="_blank">
+                YouTube
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <h2>
+            ShopNest
+        </h2>
+
+        <p>
+            © 2026 ShopNest. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

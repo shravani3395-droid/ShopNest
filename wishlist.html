@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ShopNest - My Wishlist</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="top-header">
+
+    <div class="logo">
+        Shop<span>Nest</span>
+    </div>
+
+
+    <div class="location">
+
+        <small>Deliver to</small>
+
+        <strong>📍 India</strong>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <form
+        class="search-box"
+        onsubmit="searchProduct(); return false;"
+    >
+
+        <select id="searchCategory">
+
+            <option value="All">All</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Home">Home</option>
+            <option value="Beauty">Beauty</option>
+            <option value="Gaming">Gaming</option>
+            <option value="Books">Books</option>
+
+        </select>
+
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search ShopNest"
+            autocomplete="off"
+        >
+
+
+        <button type="submit">
+            🔍
+        </button>
+
+    </form>
+
+
+    <!-- ACCOUNT -->
+
+    <div class="account">
+
+        <small>Hello,</small>
+
+        <strong>My Account</strong>
+
+    </div>
+
+
+    <!-- ORDERS -->
+
+    <div class="orders">
+
+        <small>Returns</small>
+
+        <strong>& Orders</strong>
+
+    </div>
+
+
+    <!-- CART -->
+
+    <div
+        class="cart"
+        onclick="openCart()"
+    >
+
+        🛒
+
+        <span id="cartCount">
+            0
+        </span>
+
+        <strong>Cart</strong>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav class="navbar">
+
+     <div class="menu" id="allMenuButton">
+    ☰ All
+</div>
+
+
+    <a href="index.html">
+        Home
+    </a>
+
+    <a href="products.html">
+        Products
+    </a>
+
+    <a href="deals.html">
+        Today's Deals
+    </a>
+
+    <a href="best-sellers.html">
+        Best Sellers
+    </a>
+
+    <a href="new-releases.html">
+        New Releases
+    </a>
+<!-- CATEGORIES -->
+    <a href="products.html?category=Fashion">
+         Fashion
+    </a>
+
+    <a href="products.html?category=Electronics">
+         Electronics
+    </a>
+
+    <a href="products.html?category=Home">
+         Home & kitchen
+    </a>
+
+    <a href="products.html?category=Beauty">
+        Beauty
+    </a>
+    <a href="service.html">
+        Customer Service
+    </a>
+
+</nav>
+
+
+
+<!-- =====================================================
+     ALL MENU SIDEBAR
+===================================================== -->
+
+<div class="all-menu-overlay" id="allMenuOverlay"></div>
+
+<aside class="all-menu-sidebar" id="allMenuSidebar">
+
+    <div class="all-menu-header">
+
+        <h2>
+            👤 Hello, Sign in
+        </h2>
+
+        <button
+            type="button"
+            id="closeAllMenu"
+            class="close-all-menu"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+    <div class="all-menu-content">
+
+        <h3>
+            Shop by Category
+        </h3>
+
+        <a href="products.html?category=Electronics">
+    📱 Electronics
+</a>
+
+<a href="products.html?category=Fashion">
+    👕 Fashion
+</a>
+
+<a href="products.html?category=Home">
+    🏠 Home & Kitchen
+</a>
+
+<a href="products.html?category=Beauty">
+    💄 Beauty
+</a>
+
+<a href="products.html?category=Gaming">
+    🎮 Gaming
+</a>
+
+<a href="products.html?category=Books">
+    📚 Books
+</a>
+        <div class="all-menu-divider"></div>
+
+
+        <h3>
+            Featured
+        </h3>
+
+        <a href="deals.html">
+            🔥 Today's Deals
+        </a>
+
+        <a href="best-sellers.html">
+            ⭐ Best Sellers
+        </a>
+
+        <a href="new-releases.html">
+            🆕 New Releases
+        </a>
+
+
+        <div class="all-menu-divider"></div>
+
+
+        <h3>
+            Help & Settings
+        </h3>
+
+        <a href="account.html">
+            👤 Your Account
+        </a>
+
+        <a href="service.html">
+            ⚙️ Customer Service
+        </a>
+
+    </div>
+
+</aside>
+
+   
+<!-- =====================================================
+     WISHLIST PAGE
+===================================================== -->
+
+<main class="wishlist-page">
+
+
+    <!-- PAGE HEADER -->
+
+    <div class="wishlist-heading">
+
+        <div>
+
+            <h1>
+                My Wishlist ❤️
+            </h1>
+
+            <p>
+                Save your favorite products and shop them
+                whenever you want.
+            </p>
+
+        </div>
+
+
+        <a
+            href="products.html"
+            class="continue-shopping"
+        >
+            Continue Shopping →
+        </a>
+
+    </div>
+
+
+
+    <!-- =================================================
+         WISHLIST PRODUCTS
+    ================================================== -->
+
+    <section
+        class="wishlist-grid"
+        id="wishlistContainer"
+    >
+
+        <!-- Products are loaded using JavaScript -->
+
+    </section>
+
+
+
+    <!-- =================================================
+         EMPTY WISHLIST
+    ================================================== -->
+
+    <section
+        class="empty-wishlist"
+        id="emptyWishlist"
+    >
+
+        <div class="empty-wishlist-icon">
+            ❤️
+        </div>
+
+        <h2>
+            Your Wishlist is Empty
+        </h2>
+
+        <p>
+            You haven't added any products to your wishlist yet.
+        </p>
+
+        <a href="products.html">
+            Explore Products
+        </a>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <div
+        class="footer-top"
+        onclick="window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })"
+    >
+
+        Back to top ↑
+
+    </div>
+
+
+    <div class="footer-content">
+
+
+        <div>
+
+            <h3>
+                Get to Know Us
+            </h3>
+
+            <a href="about.html">
+                About ShopNest
+            </a>
+
+            <a href="careers.html">
+                Careers
+            </a>
+
+            <a href="press.html">
+                Press Releases
+            </a>
+
+            <a href="service.html">
+                Contact Us
+            </a>
+
+        </div>
+
+
+
+        <div>
+
+            <h3>
+                Make Money With Us
+            </h3>
+
+            <a href="sell.html">
+                Sell on ShopNest
+            </a>
+
+            <a href="affiliate.html">
+                Become an Affiliate
+            </a>
+
+            <a href="advertise.html">
+                Advertise Your Products
+            </a>
+
+        </div>
+
+
+
+        <div>
+
+            <h3>
+                Customer Support
+            </h3>
+
+            <a href="account.html">
+                Your Account
+            </a>
+
+            <a href="orders.html">
+                Orders
+            </a>
+
+            <a href="orders.html">
+                Returns
+            </a>
+
+            <a href="service.html">
+                Help Center
+            </a>
+
+        </div>
+
+
+
+        <div>
+
+            <h3>
+                Connect With Us
+            </h3>
+
+            <a href="https://www.instagram.com/" target="_blank">
+                Instagram
+            </a>
+
+            <a href="https://www.facebook.com/" target="_blank">
+                Facebook
+            </a>
+
+            <a href="https://www.youtube.com/" target="_blank">
+                YouTube
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <h2>
+            ShopNest
+        </h2>
+
+        <p>
+            © 2026 ShopNest. All rights reserved.
+        </p>
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     MAIN JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+
+
+<!-- =====================================================
+     WISHLIST JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =====================================================
+   LOAD WISHLIST
+===================================================== */
+
+function loadWishlist() {
+
+    const container =
+        document.getElementById(
+            "wishlistContainer"
+        );
+
+    const emptyMessage =
+        document.getElementById(
+            "emptyWishlist"
+        );
+
+
+    if (!container || !emptyMessage) {
+        return;
+    }
+
+
+    let savedWishlist = [];
+
+
+    try {
+
+        savedWishlist =
+            JSON.parse(
+                localStorage.getItem(
+                    "shopnestWishlist"
+                )
+            ) || [];
+
+    } catch (error) {
+
+        savedWishlist = [];
+
+    }
+
+
+    /* =========================================
+       EMPTY WISHLIST
+    ========================================== */
+
+    if (
+        !Array.isArray(savedWishlist) ||
+        savedWishlist.length === 0
+    ) {
+
+        container.innerHTML = "";
+
+        emptyMessage.style.display = "block";
+
+        return;
+
+    }
+
+
+    /* =========================================
+       SHOW PRODUCTS
+    ========================================== */
+
+    emptyMessage.style.display = "none";
+
+    container.innerHTML = "";
+
+
+    savedWishlist.forEach(
+        function(product) {
+
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+
+            card.className =
+                "wishlist-card";
+
+
+            const safeName =
+                String(
+                    product.name || "Product"
+                );
+
+
+            const price =
+                Number(
+                    product.price
+                ) || 0;
+
+
+            const image =
+                product.image || "";
+
+
+            const rating =
+                product.rating ||
+                "⭐⭐⭐⭐⭐";
+
+
+            card.innerHTML = `
+
+                <!-- REMOVE BUTTON -->
+
+                <button
+                    type="button"
+                    class="remove-wishlist"
+                    title="Remove from wishlist"
+                    aria-label="Remove ${safeName} from wishlist"
+                >
+                    ×
+                </button>
+
+
+                <!-- PRODUCT IMAGE -->
+
+                <div class="wishlist-image">
+
+                    ${
+                        image
+                            ? `
+                                <img
+                                    src="${image}"
+                                    alt="${safeName}"
+                                    loading="lazy"
+                                >
+                              `
+                            : `
+                                <div class="wishlist-no-image">
+                                    🛍️
+                                </div>
+                              `
+                    }
+
+                </div>
+
+
+                <!-- PRODUCT INFORMATION -->
+
+                <div class="wishlist-info">
+
+                    <h2>
+                        ${safeName}
+                    </h2>
+
+
+                    <div class="wishlist-rating">
+                        ${rating}
+                    </div>
+
+
+                    <div class="wishlist-price">
+
+                        ₹${price.toLocaleString("en-IN")}
+
+                    </div>
+
+
+                    ${
+                        product.oldPrice
+                            ? `
+                                <div class="wishlist-old-price">
+
+                                    ₹${Number(
+                                        product.oldPrice
+                                    ).toLocaleString("en-IN")}
+
+                                </div>
+                              `
+                            : ""
+                    }
+
+
+                    <!-- BUTTONS -->
+
+                    <div class="wishlist-buttons">
+
+                        <button
+                            type="button"
+                            class="wishlist-cart-button"
+                        >
+                            🛒 Add to Cart
+                        </button>
+
+
+                        <!-- IMPORTANT:
+                             YOUR PRODUCT PAGE IS product.html
+                        -->
+
+                        <a
+                            href="product.html?product=${encodeURIComponent(
+                                safeName
+                            )}"
+                            class="wishlist-details-button"
+                        >
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            /* =====================================
+               REMOVE BUTTON
+            ====================================== */
+
+            const removeButton =
+                card.querySelector(
+                    ".remove-wishlist"
+                );
+
+
+            removeButton.addEventListener(
+                "click",
+                function() {
+
+                    removeFromWishlist(
+                        safeName
+                    );
+
+                }
+            );
+
+
+            /* =====================================
+               ADD TO CART BUTTON
+            ====================================== */
+
+            const cartButton =
+                card.querySelector(
+                    ".wishlist-cart-button"
+                );
+
+
+            cartButton.addEventListener(
+                "click",
+                function() {
+
+                    if (
+                        typeof addToCart ===
+                        "function"
+                    ) {
+
+                        addToCart(
+                            safeName,
+                            price
+                        );
+
+                    } else {
+
+                        alert(
+                            "Cart function is not available."
+                        );
+
+                    }
+
+                }
+            );
+
+
+            container.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   REMOVE PRODUCT FROM WISHLIST
+===================================================== */
+
+function removeFromWishlist(
+    productName
+) {
+
+    let wishlist = [];
+
+
+    try {
+
+        wishlist =
+            JSON.parse(
+                localStorage.getItem(
+                    "shopnestWishlist"
+                )
+            ) || [];
+
+    } catch (error) {
+
+        wishlist = [];
+
+    }
+
+
+    wishlist =
+        wishlist.filter(
+            function(product) {
+
+                return (
+                    product.name !==
+                    productName
+                );
+
+            }
+        );
+
+
+    localStorage.setItem(
+        "shopnestWishlist",
+        JSON.stringify(
+            wishlist
+        )
+    );
+
+
+    loadWishlist();
+
+}
+
+
+
+/* =====================================================
+   PAGE INITIALIZATION
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        loadWishlist();
+
+
+        if (
+            typeof updateCartCount ===
+            "function"
+        ) {
+
+            updateCartCount();
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

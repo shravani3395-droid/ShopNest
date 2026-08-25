@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Returns & Refunds - ShopNest</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+
+
+
+
+<!-- =====================================================
+     ALL MENU SIDEBAR
+===================================================== -->
+
+<div
+    class="all-menu-overlay"
+    id="allMenuOverlay"
+></div>
+
+
+<aside
+    class="all-menu-sidebar"
+    id="allMenuSidebar"
+>
+
+    <!-- SIDEBAR HEADER -->
+
+    <div class="all-menu-header">
+
+        <h2>
+            👤 Hello, Sign in
+        </h2>
+
+
+        <button
+            type="button"
+            id="closeAllMenu"
+            class="close-all-menu"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+    <!-- SIDEBAR CONTENT -->
+
+    <div class="all-menu-content">
+
+        <h3>
+            Shop by Category
+        </h3>
+
+
+        <a href="products.html">
+            🛍️ All Products
+        </a>
+
+
+        <a href="products.html?category=Electronics">
+            📱 Electronics
+        </a>
+
+
+        <a href="products.html?category=Fashion">
+            👕 Fashion
+        </a>
+
+
+        <a href="products.html?category=Home">
+            🏠 Home & kitchen
+        </a>
+
+
+        <a href="products.html?category=Beauty">
+            💄 Beauty
+        </a>
+
+
+        <a href="products.html?category=Gaming">
+            🎮 Gaming
+        </a>
+
+
+        <a href="products.html?category=Books">
+            📚 Books
+        </a>
+
+
+        <div class="all-menu-divider"></div>
+
+
+        <h3>
+            Featured
+        </h3>
+
+
+        <a href="deals.html">
+            🔥 Today's Deals
+        </a>
+
+
+        <a href="best-sellers.html">
+            ⭐ Best Sellers
+        </a>
+
+
+        <a href="new-releases.html">
+            🆕 New Releases
+        </a>
+
+
+        <div class="all-menu-divider"></div>
+
+
+        <h3>
+            Help & Settings
+        </h3>
+
+
+        <a href="account.html">
+            👤 Your Account
+        </a>
+
+
+        <a href="orders.html">
+            📦 Your Orders
+        </a>
+
+
+        <a href="service.html">
+            ⚙️ Customer Service
+        </a>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     RETURNS HERO
+===================================================== -->
+
+<section class="customer-service-hero">
+
+    <div class="customer-service-hero-content">
+
+        <span class="customer-service-tag">
+            SHOPNEST SUPPORT
+        </span>
+
+
+        <h1>
+            Returns & Refunds
+        </h1>
+
+
+        <p>
+            Learn how to return products, request replacements,
+            check refund information and resolve return-related
+            questions.
+        </p>
+
+
+        <div class="customer-search">
+
+            <input
+                type="text"
+                id="helpSearch"
+                placeholder="Search returns and refunds..."
+            >
+
+
+            <button
+                type="button"
+                onclick="searchHelp()"
+            >
+                🔍 Search
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RETURN OPTIONS
+===================================================== -->
+
+<section class="customer-quick-help">
+
+    <h2>
+        Returns & Refunds Help
+    </h2>
+
+
+    <p class="customer-section-description">
+        Choose an option below to find information about
+        returning products and receiving refunds.
+    </p>
+
+
+    <div class="help-grid">
+
+
+        <!-- START RETURN -->
+
+        <div class="help-card">
+
+            <div class="help-icon">
+                🔄
+            </div>
+
+
+            <h3>
+                Start a Return
+            </h3>
+
+
+            <p>
+                Learn how to request a return for an eligible
+                ShopNest product.
+            </p>
+
+
+            <a href="#return-process">
+                Start Return →
+            </a>
+
+        </div>
+
+
+
+        <!-- REFUND -->
+
+        <div class="help-card">
+
+            <div class="help-icon">
+                💰
+            </div>
+
+
+            <h3>
+                Refund Information
+            </h3>
+
+
+            <p>
+                Understand refund processing and when you
+                can expect your refund.
+            </p>
+
+
+            <a href="#refunds">
+                Refund Help →
+            </a>
+
+        </div>
+
+
+
+        <!-- REPLACEMENT -->
+
+        <div class="help-card">
+
+            <div class="help-icon">
+                📦
+            </div>
+
+
+            <h3>
+                Replacement
+            </h3>
+
+
+            <p>
+                Find out how to request a replacement for
+                an eligible product.
+            </p>
+
+
+            <a href="#replacement">
+                Replacement Help →
+            </a>
+
+        </div>
+
+
+
+        <!-- RETURN PROBLEMS -->
+
+        <div class="help-card">
+
+            <div class="help-icon">
+                ❌
+            </div>
+
+
+            <h3>
+                Return Problems
+            </h3>
+
+
+            <p>
+                Get help if your return request is not working
+                or your refund has not arrived.
+            </p>
+
+
+            <a href="#problems">
+                Get Help →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RETURN PROCESS
+===================================================== -->
+
+<section
+    class="customer-faq"
+    id="return-process"
+>
+
+    <h2>
+        How to Return a Product
+    </h2>
+
+
+    <div class="faq-container">
+
+
+        <details open>
+
+            <summary>
+                Step 1: Open Your Orders
+            </summary>
+
+
+            <p>
+                Go to your ShopNest Orders page and select
+                the product that you want to return.
+            </p>
+
+        </details>
+
+
+
+        <details>
+
+            <summary>
+                Step 2: Select Return
+            </summary>
+
+
+            <p>
+                Select the return option and choose the reason
+                for returning the product.
+            </p>
+
+        </details>
+
+
+
+        <details>
+
+            <summary>
+                Step 3: Select Return Method
+            </summary>
+
+
+            <p>
+                Select an available return or pickup option
+                according to the product and delivery location.
+            </p>
+
+        </details>
+
+
+
+        <details>
+
+            <summary>
+                Step 4: Prepare the Product
+            </summary>
+
+
+            <p>
+                Keep the product, accessories, packaging and
+                other required items ready for the return process.
+            </p>
+
+        </details>
+
+
+
+        <details>
+
+            <summary>
+                Step 5: Return Confirmation
+            </summary>
+
+
+            <p>
+                Once the return is processed, you can check
+                the status from your Orders section.
+            </p>
+
+        </details>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     REFUND INFORMATION
+===================================================== -->
+
+<section
+    class="customer-faq"
+    id="refunds"
+>
+
+    <h2>
+        Refund Information
+    </h2>
+
+
+    <div class="faq-container">
+
+
+        <details open>
+
+            <summary>
+                When will I receive my refund?
+            </summary>
+
+
+            <p>
+                Refund timing depends on the return status,
+                verification process and selected payment method.
+            </p>
+
+        </details>
+
+
+
+        <details>
+
+            <summary>
+                Where will my refund be credited?
+            </summary>
+
+
+            <p>
+                Depending on your payment method and checkout
+                setup, the refund may be processed through the
+                applicable payment method.
+            </p>
+
+        </details>
+
+
+
+        <details>
+
+            <summary>
+                What if my refund is delayed?
+            </summary>
+
+
+            <p>
+                Check your order and return status first. If the
+                refund remains pending, contact ShopNest Customer
+                Service.
+            </p>
+
+        </details>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     REPLACEMENT
+===================================================== -->
+
+<section
+    class="customer-faq"
+    id="replacement"
+>
+
+    <h2>
+        Product Replacement
+    </h2>
+
+
+    <div class="faq-container">
+
+
+        <details open>
+
+            <summary>
+                Can I request a replacement?
+            </summary>
+
+
+            <p>
+                Replacement availability depends on the product,
+                condition and applicable ShopNest return policy.
+            </p>
+
+        </details>
+
+
+
+        <details>
+
+            <summary>
+                What if I received a damaged product?
+            </summary>
+
+
+            <p>
+                Keep the product and packaging information available
+                and contact ShopNest Customer Service for assistance.
+            </p>
+
+        </details>
+
+
+
+        <details>
+
+            <summary>
+                What if I received the wrong product?
+            </summary>
+
+
+            <p>
+                Check your order details and contact ShopNest
+                Customer Service with your order information so
+                the issue can be reviewed.
+            </p>
+
+        </details>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RETURN PROBLEMS
+===================================================== -->
+
+<section
+    class="customer-faq"
+    id="problems"
+>
+
+    <h2>
+        Return Problems & Help
+    </h2>
+
+
+    <div class="faq-container">
+
+
+        <!-- PROBLEM 1 -->
+
+        <details open>
+
+            <summary>
+                My return request is not working
+            </summary>
+
+
+            <p>
+                Make sure that you are viewing the correct order
+                and that the product is eligible for return. If
+                you continue to experience a problem, contact
+                ShopNest Customer Service.
+            </p>
+
+        </details>
+
+
+
+        <!-- PROBLEM 2 -->
+
+        <details>
+
+            <summary>
+                My return request was rejected
+            </summary>
+
+
+            <p>
+                A return request may not be available for every
+                product. Check the product's applicable return
+                conditions and your order details for more
+                information.
+            </p>
+
+        </details>
+
+
+
+        <!-- PROBLEM 3 -->
+
+        <details>
+
+            <summary>
+                My refund has not been received
+            </summary>
+
+
+            <p>
+                First check your order and return status. Refund
+                processing can depend on the return verification
+                and payment method. If the refund remains pending,
+                contact ShopNest Customer Service.
+            </p>
+
+        </details>
+
+
+
+        <!-- PROBLEM 4 -->
+
+        <details>
+
+            <summary>
+                My replacement has not arrived
+            </summary>
+
+
+            <p>
+                Check your Orders page for the latest replacement
+                status. If there is no updated information, contact
+                ShopNest support.
+            </p>
+
+        </details>
+
+
+
+        <!-- PROBLEM 5 -->
+
+        <details>
+
+            <summary>
+                I received the wrong product
+            </summary>
+
+
+            <p>
+                Check your order details and contact ShopNest
+                Customer Service with the order information so
+                the issue can be reviewed.
+            </p>
+
+        </details>
+
+
+
+        <!-- PROBLEM 6 -->
+
+        <details>
+
+            <summary>
+                I still need help with my return
+            </summary>
+
+
+            <p>
+                If you cannot resolve your return issue using the
+                available options, use the Contact Support button
+                below to request assistance.
+            </p>
+
+        </details>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT SUPPORT
+===================================================== -->
+
+<section class="customer-contact">
+
+    <div class="customer-contact-content">
+
+
+        <h2>
+            Still Need Help?
+        </h2>
+
+
+        <p>
+            Our customer support team is here to help you
+            with returns, replacements and refunds.
+        </p>
+
+
+        <div class="contact-options">
+
+
+            <!-- EMAIL -->
+
+            <div class="contact-option">
+
+                <div class="contact-icon">
+                    📧
+                </div>
+
+
+                <h3>
+                    Email Support
+                </h3>
+
+
+                <p>
+                    support@shopnest.com
+                </p>
+
+            </div>
+
+
+
+            <!-- PHONE -->
+
+            <div class="contact-option">
+
+                <div class="contact-icon">
+                    📞
+                </div>
+
+
+                <h3>
+                    Customer Support
+                </h3>
+
+
+                <p>
+                    1800-123-4567
+                </p>
+
+            </div>
+
+
+
+            <!-- CHAT -->
+
+            <div class="contact-option">
+
+                <div class="contact-icon">
+                    💬
+                </div>
+
+
+                <h3>
+                    Live Chat
+                </h3>
+
+
+                <p>
+                    Available 24/7
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="contact-support-button"
+            type="button"
+            onclick="contactSupport()"
+        >
+            Contact Support
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <!-- BACK TO TOP -->
+
+    <div
+        class="footer-top"
+        onclick="window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })"
+    >
+
+        Back to top ↑
+
+    </div>
+
+
+
+    <!-- FOOTER CONTENT -->
+
+    <div class="footer-content">
+
+
+        <!-- COLUMN 1 -->
+
+        <div>
+
+            <h3>
+                Get to Know Us
+            </h3>
+
+
+            <a href="index.html">
+                About ShopNest
+            </a>
+
+
+            <a href="careers.html">
+                Careers
+            </a>
+
+
+            <a href="press.html">
+                Press Releases
+            </a>
+
+
+            <a href="service.html">
+                Contact Us
+            </a>
+
+        </div>
+
+
+
+        <!-- COLUMN 2 -->
+
+        <div>
+
+            <h3>
+                Make Money With Us
+            </h3>
+
+
+            <a href="sell.html">
+                Sell on ShopNest
+            </a>
+
+
+            <a href="affiliate.html">
+                Become an Affiliate
+            </a>
+
+
+            <a href="advertise.html">
+                Advertise Your Products
+            </a>
+
+        </div>
+
+
+
+        <!-- COLUMN 3 -->
+
+        <div>
+
+            <h3>
+                Customer Support
+            </h3>
+
+
+            <a href="account.html">
+                Your Account
+            </a>
+
+
+            <a href="orders.html">
+                Orders
+            </a>
+
+
+            <a href="returns.html">
+                Returns
+            </a>
+
+
+            <a href="service.html">
+                Help Center
+            </a>
+
+        </div>
+
+
+
+        <!-- COLUMN 4 -->
+
+        <div>
+
+            <h3>
+                Connect With Us
+            </h3>
+
+
+             <a href="https://www.instagram.com/" target="_blank">
+                Instagram
+            </a>
+
+            <a href="https://www.facebook.com/" target="_blank">
+                Facebook
+            </a>
+
+            <a href="https://www.youtube.com/" target="_blank">
+                YouTube
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FOOTER BOTTOM -->
+
+    <div class="footer-bottom">
+
+        <h2>
+            ShopNest
+        </h2>
+
+
+        <p>
+            © 2026 ShopNest. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

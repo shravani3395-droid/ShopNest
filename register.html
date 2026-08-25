@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopNest - Create Account</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-page">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="auth-header">
+
+        <a href="index.html" class="auth-logo">
+            Shop<span>Nest</span>
+        </a>
+
+    </header>
+
+
+    <!-- ================= REGISTER ================= -->
+
+    <main class="auth-container">
+
+        <div class="auth-card">
+
+            <h1>Create Account</h1>
+
+            <p class="auth-subtitle">
+                Join ShopNest and start shopping today.
+            </p>
+
+
+            <!-- FULL NAME -->
+
+            <div class="auth-form-group">
+
+                <label for="registerName">
+                    Your Name
+                </label>
+
+                <input
+                    type="text"
+                    id="registerName"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                >
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="auth-form-group">
+
+                <label for="registerEmail">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="registerEmail"
+                    placeholder="Enter your email address"
+                    autocomplete="email"
+                >
+
+            </div>
+
+
+            <!-- MOBILE -->
+
+            <div class="auth-form-group">
+
+                <label for="registerPhone">
+                    Mobile Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="registerPhone"
+                    placeholder="Enter 10-digit mobile number"
+                    maxlength="10"
+                    autocomplete="tel"
+                >
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="auth-form-group">
+
+                <label for="registerPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="At least 6 characters"
+                    autocomplete="new-password"
+                >
+
+                <small class="password-help">
+                    Password must be at least 6 characters.
+                </small>
+
+            </div>
+
+
+            <!-- CONFIRM PASSWORD -->
+
+            <div class="auth-form-group">
+
+                <label for="confirmPassword">
+                    Re-enter Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Re-enter your password"
+                    autocomplete="new-password"
+                >
+
+            </div>
+
+
+            <!-- TERMS -->
+
+            <label class="terms-check">
+
+                <input
+                    type="checkbox"
+                    id="termsCheck"
+                >
+
+                <span>
+                    I agree to the ShopNest
+                    <a href="terms.html">
+                        Terms & Conditions
+                    </a>
+                    and
+                    <a href="privacy.html">
+                        Privacy Policy
+                    </a>.
+                </span>
+
+            </label>
+
+
+            <!-- ERROR / SUCCESS MESSAGE -->
+
+            <div
+                id="registerMessage"
+                class="auth-message"
+                aria-live="polite"
+            ></div>
+
+
+            <!-- REGISTER BUTTON -->
+
+            <button
+                type="button"
+                class="auth-button"
+                onclick="registerUser()"
+            >
+                Create your ShopNest account
+            </button>
+
+
+            <!-- LOGIN -->
+
+            <div class="auth-divider">
+                <span>Already have an account?</span>
+            </div>
+
+
+            <a
+                href="login.html"
+                class="auth-secondary-button"
+            >
+                Sign in
+            </a>
+
+        </div>
+
+
+        <!-- BACK TO HOME -->
+
+        <a
+            href="index.html"
+            class="back-home"
+        >
+            ← Back to ShopNest
+        </a>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="auth-footer">
+
+        <div class="auth-footer-links">
+
+            <a href="privacy.html">
+                Privacy Notice
+            </a>
+
+            <a href="terms.html">
+                Terms & Conditions
+            </a>
+
+            <a href="help.html">
+                Help
+            </a>
+
+        </div>
+
+        <p>
+            © 2026 ShopNest. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Delivery Help - ShopNest</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+
+
+<!-- =====================================================
+     ALL MENU
+===================================================== -->
+
+<div
+    class="all-menu-overlay"
+    id="allMenuOverlay"
+></div>
+
+
+<aside
+    class="all-menu-sidebar"
+    id="allMenuSidebar"
+>
+
+    <div class="all-menu-header">
+
+        <h2>
+            👤 Hello, Sign in
+        </h2>
+
+
+        <button
+            type="button"
+            id="closeAllMenu"
+            class="close-all-menu"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+    <div class="all-menu-content">
+
+        <h3>
+            Shop by Category
+        </h3>
+
+
+        <a href="products.html">
+            🛍️ All Products
+        </a>
+
+
+        <a href="products.html?category=Electronics">
+            📱 Electronics
+        </a>
+
+
+        <a href="products.html?category=Fashion">
+            👕 Fashion
+        </a>
+
+
+        <a href="products.html?category=Home">
+            🏠 Home & kitchen
+        </a>
+
+
+        <a href="products.html?category=Beauty">
+            💄 Beauty
+        </a>
+
+
+        <a href="products.html?category=Gaming">
+            🎮 Gaming
+        </a>
+
+
+        <a href="products.html?category=Books">
+            📚 Books
+        </a>
+
+
+        <div class="all-menu-divider"></div>
+
+
+        <h3>
+            Featured
+        </h3>
+
+
+        <a href="deals.html">
+            🔥 Today's Deals
+        </a>
+
+
+        <a href="best-sellers.html">
+            ⭐ Best Sellers
+        </a>
+
+
+        <a href="new-releases.html">
+            🆕 New Releases
+        </a>
+
+
+        <div class="all-menu-divider"></div>
+
+
+        <h3>
+            Help & Settings
+        </h3>
+
+
+        <a href="account.html">
+            👤 Your Account
+        </a>
+
+
+        <a href="orders.html">
+            📦 Your Orders
+        </a>
+
+
+        <a href="service.html">
+            ⚙️ Customer Service
+        </a>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     DELIVERY HERO
+===================================================== -->
+
+<section class="customer-service-hero">
+
+    <div class="customer-service-hero-content">
+
+        <span class="customer-service-tag">
+            SHOPNEST SUPPORT
+        </span>
+
+
+        <h1>
+            Delivery Information
+        </h1>
+
+
+        <p>
+            Get help with shipping, delivery dates, package
+            tracking, delayed orders and delivery problems.
+        </p>
+
+
+        <div class="customer-search">
+
+            <input
+                type="text"
+                id="helpSearch"
+                placeholder="Search delivery help..."
+            >
+
+
+            <button onclick="searchHelp()">
+                🔍 Search
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DELIVERY OPTIONS
+===================================================== -->
+
+<section class="customer-quick-help">
+
+    <h2>
+        Delivery & Shipping Help
+    </h2>
+
+
+    <p class="customer-section-description">
+        Find information about your ShopNest delivery.
+    </p>
+
+
+    <div class="help-grid">
+
+
+        <div class="help-card">
+
+            <div class="help-icon">
+                📦
+            </div>
+
+
+            <h3>
+                Track Your Order
+            </h3>
+
+
+            <p>
+                Check the status and available tracking
+                information for your ShopNest order.
+            </p>
+
+
+            <a href="orders.html">
+                Track Order →
+            </a>
+
+        </div>
+
+
+        <div class="help-card">
+
+            <div class="help-icon">
+                📅
+            </div>
+
+
+            <h3>
+                Delivery Dates
+            </h3>
+
+
+            <p>
+                Learn about estimated delivery dates and
+                factors that can affect delivery.
+            </p>
+
+
+            <a href="#dates">
+                Delivery Dates →
+            </a>
+
+        </div>
+
+
+        <div class="help-card">
+
+            <div class="help-icon">
+                🚚
+            </div>
+
+
+            <h3>
+                Shipping Information
+            </h3>
+
+
+            <p>
+                Understand shipping options, delivery areas
+                and possible shipping charges.
+            </p>
+
+
+            <a href="#shipping">
+                Shipping Help →
+            </a>
+
+        </div>
+
+
+        <div class="help-card">
+
+            <div class="help-icon">
+                ⚠️
+            </div>
+
+
+            <h3>
+                Delayed Delivery
+            </h3>
+
+
+            <p>
+                Find out what to do if your package is delayed
+                or has not arrived.
+            </p>
+
+
+            <a href="#delayed">
+                Delayed Order →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DELIVERY DATES
+===================================================== -->
+
+<section
+    class="customer-faq"
+    id="dates"
+>
+
+    <h2>
+        Delivery Dates
+    </h2>
+
+
+    <div class="faq-container">
+
+        <details open>
+
+            <summary>
+                How is my delivery date calculated?
+            </summary>
+
+            <p>
+                Estimated delivery depends on product availability,
+                delivery location, shipping option and order processing
+                time.
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Can my delivery date change?
+            </summary>
+
+            <p>
+                In some situations, delivery estimates can change
+                because of inventory, transportation or other
+                delivery-related factors.
+            </p>
+
+        </details>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SHIPPING
+===================================================== -->
+
+<section
+    class="customer-faq"
+    id="shipping"
+>
+
+    <h2>
+        Shipping Information
+    </h2>
+
+
+    <div class="faq-container">
+
+        <details open>
+
+            <summary>
+                Where does ShopNest deliver?
+            </summary>
+
+            <p>
+                Delivery availability depends on the product,
+                seller and delivery location entered during checkout.
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Are shipping charges applicable?
+            </summary>
+
+            <p>
+                Shipping charges, if applicable, may depend on
+                the product, delivery location and selected
+                delivery option.
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Can I change my delivery address?
+            </summary>
+
+            <p>
+                Address changes depend on the order status.
+                Check your order information as soon as possible
+                if you need to update the delivery address.
+            </p>
+
+        </details>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DELAYED DELIVERY
+===================================================== -->
+
+<section
+    class="customer-faq"
+    id="delayed"
+>
+
+    <h2>
+        Delayed or Missing Delivery
+    </h2>
+
+
+    <div class="faq-container">
+
+        <details open>
+
+            <summary>
+                What should I do if my order is delayed?
+            </summary>
+
+            <p>
+                Check your Orders page for the latest delivery
+                information. If the order remains delayed, contact
+                ShopNest Customer Service.
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                My package says delivered but I did not receive it
+            </summary>
+
+            <p>
+                Check the delivery information and confirm that
+                the package was not received by another household
+                member or at an expected delivery location. If
+                you still cannot locate it, contact support.
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                What if my package arrives damaged?
+            </summary>
+
+            <p>
+                Keep the product and packaging information available
+                and contact ShopNest Customer Service for assistance.
+            </p>
+
+        </details>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section class="customer-contact">
+
+    <div class="customer-contact-content">
+
+        <h2>
+            Need More Delivery Help?
+        </h2>
+
+
+        <p>
+            Our ShopNest support team can help you with
+            delivery and shipping questions.
+        </p>
+
+
+        <div class="contact-options">
+
+            <div class="contact-option">
+
+                <div class="contact-icon">
+                    📧
+                </div>
+
+                <h3>
+                    Email Support
+                </h3>
+
+                <p>
+                    support@shopnest.com
+                </p>
+
+            </div>
+
+
+            <div class="contact-option">
+
+                <div class="contact-icon">
+                    📞
+                </div>
+
+                <h3>
+                    Customer Support
+                </h3>
+
+                <p>
+                    1800-123-4567
+                </p>
+
+            </div>
+
+
+            <div class="contact-option">
+
+                <div class="contact-icon">
+                    💬
+                </div>
+
+                <h3>
+                    Live Chat
+                </h3>
+
+                <p>
+                    Available 24/7
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="contact-support-button"
+            onclick="contactSupport()"
+        >
+            Contact Support
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div
+        class="footer-top"
+        onclick="window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })"
+    >
+        Back to top ↑
+    </div>
+
+
+    <div class="footer-content">
+
+
+        <div>
+
+            <h3>
+                Get to Know Us
+            </h3>
+
+            <a href="index.html">
+                About ShopNest
+            </a>
+
+            <a href="careers.html">
+                Careers
+            </a>
+
+            <a href="press.html">
+                Press Releases
+            </a>
+
+            <a href="service.html">
+                Contact Us
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Make Money With Us
+            </h3>
+
+            <a href="sell.html">
+                Sell on ShopNest
+            </a>
+
+            <a href="affiliate.html">
+                Become an Affiliate
+            </a>
+
+            <a href="advertise.html">
+                Advertise Your Products
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Customer Support
+            </h3>
+
+            <a href="account.html">
+                Your Account
+            </a>
+
+            <a href="orders.html">
+                Orders
+            </a>
+
+            <a href="returns.html">
+                Returns
+            </a>
+
+            <a href="service.html">
+                Help Center
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Connect With Us
+            </h3>
+
+             <a href="https://www.instagram.com/" target="_blank">
+                Instagram
+            </a>
+
+             <a href="https://www.facebook.com/" target="_blank">
+                Facebook
+            </a>
+
+            <a href="https://www.youtube.com/" target="_blank">
+                YouTube
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <h2>
+            ShopNest
+        </h2>
+
+        <p>
+            © 2026 ShopNest. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

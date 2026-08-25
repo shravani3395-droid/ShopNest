@@ -1,0 +1,2527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Manage your ShopNest account, profile, addresses, payment methods and settings."
+    >
+
+    <title>ShopNest - My Account</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="top-header">
+
+
+    <div class="logo">
+        Shop<span>Nest</span>
+    </div>
+
+
+   <div class="location" id="headerLocation">
+
+    <small>
+        Deliver to
+    </small>
+
+    <strong>
+        📍 India
+    </strong>
+
+</div>
+
+    <!-- SEARCH -->
+
+    <form
+        class="search-box"
+        onsubmit="searchProduct(); return false;"
+    > <select id="searchCategory" onchange="filterBySearchCategory()">
+
+    <option value="All">All</option>
+
+    <option value="Electronics">Electronics</option>
+
+    <option value="Fashion">Fashion</option>
+
+    <option value="Home">Home</option>
+
+    <option value="Beauty">Beauty</option>
+
+    <option value="Gaming">Gaming</option>
+
+    <option value="Books">Books</option>
+
+</select>
+
+
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search ShopNest"
+            autocomplete="off"
+        >
+
+
+        <button type="submit">
+            🔍
+        </button>
+
+    </form>
+
+
+    <!-- ACCOUNT -->
+
+<div
+    class="account"
+    onclick="window.location.href='account.html'"
+    style="cursor:pointer;"
+>
+
+    <small id="accountHeaderGreeting">
+        Hello, Sign in
+    </small>
+
+    <strong id="accountHeaderName">
+        Account & Lists
+    </strong>
+
+</div>
+
+<!-- ORDERS -->
+
+<div
+    class="orders"
+    onclick="window.location.href='orders.html'"
+    style="cursor: pointer;"
+>
+
+    <small>
+        Returns
+    </small>
+
+    <strong>
+        & Orders
+    </strong>
+
+</div>
+
+    <!-- CART -->
+
+    <div
+        class="cart"
+        onclick="openCart()"
+        role="button"
+        tabindex="0"
+    >
+
+        🛒
+
+        <span id="cartCount">
+            0
+        </span>
+
+        <strong>
+            Cart
+        </strong>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav class="navbar">
+
+
+    <div
+        class="menu"
+        id="allMenuButton"
+        role="button"
+        tabindex="0"
+    >
+        ☰ All
+    </div>
+
+
+    <a href="index.html">
+        Home
+    </a>
+
+
+    <a href="products.html">
+        Products
+    </a>
+
+
+    <a href="deals.html">
+        Today's Deals
+    </a>
+
+
+    <a href="best-sellers.html">
+        Best Sellers
+    </a>
+
+
+    <a href="new-releases.html">
+        New Releases
+    </a>
+
+
+    <a href="products.html?category=Fashion">
+        Fashion
+    </a>
+
+
+    <a href="products.html?category=Electronics">
+        Electronics
+    </a>
+
+
+    <a href="products.html?category=Home">
+        Home
+    </a>
+
+
+    <a href="products.html?category=Beauty">
+        Beauty
+    </a>
+
+
+    <a href="service.html">
+        Customer Service
+    </a>
+
+</nav>
+
+
+
+<!-- =====================================================
+     ALL MENU SIDEBAR
+===================================================== -->
+
+<div
+    class="all-menu-overlay"
+    id="allMenuOverlay"
+></div>
+
+
+<aside
+    class="all-menu-sidebar"
+    id="allMenuSidebar"
+>
+
+
+    <div class="all-menu-header">
+
+       <h2 id="allMenuGreeting">
+    👤 Hello, Sign in
+</h2>
+
+        <button
+            type="button"
+            id="closeAllMenu"
+            class="close-all-menu"
+            aria-label="Close menu"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+    <div class="all-menu-content">
+
+
+        <h3>
+            Shop by Category
+        </h3>
+
+
+        <a href="products.html">
+            🛍️ All Products
+        </a>
+
+
+        <a href="products.html?category=Electronics">
+            📱 Electronics
+        </a>
+
+
+        <a href="products.html?category=Fashion">
+            👕 Fashion
+        </a>
+
+
+        <a href="products.html?category=Home">
+            🏠 Home & kitchen
+        </a>
+
+
+        <a href="products.html?category=Beauty">
+            💄 Beauty
+        </a>
+
+
+        <a href="products.html?category=Gaming">
+            🎮 Gaming
+        </a>
+
+
+        <a href="products.html?category=Books">
+            📚 Books
+        </a>
+
+
+        <div class="all-menu-divider"></div>
+
+
+        <h3>
+            Featured
+        </h3>
+
+
+        <a href="deals.html">
+            🔥 Today's Deals
+        </a>
+
+
+        <a href="best-sellers.html">
+            ⭐ Best Sellers
+        </a>
+
+
+        <a href="new-releases.html">
+            🆕 New Releases
+        </a>
+
+
+        <div class="all-menu-divider"></div>
+
+
+        <h3>
+            Help & Settings
+        </h3>
+
+
+        <a href="#profile">
+            👤 Your Account
+        </a>
+
+
+        <a href="service.html">
+            ⚙️ Customer Service
+        </a>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     ACCOUNT PAGE
+===================================================== -->
+
+<main class="account-page">
+
+
+    <!-- =================================================
+         PAGE HEADING
+    ================================================== -->
+
+    <div class="account-heading">
+
+
+        <h1>
+            My Account
+        </h1>
+
+
+        <p>
+            Manage your ShopNest account, orders, wishlist,
+            personal information, addresses, payment methods
+            and preferences.
+        </p>
+
+    </div>
+
+
+
+    <!-- =================================================
+         ACCOUNT CARDS
+    ================================================== -->
+
+    <section class="account-cards">
+
+
+        <!-- ORDERS -->
+
+        <a
+            href="orders.html"
+            class="account-card"
+        >
+
+            <div class="account-card-icon">
+                📦
+            </div>
+
+
+            <div>
+
+                <h2>
+                    Your Orders
+                </h2>
+
+                <p>
+                    Track, return or view your recent orders.
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- WISHLIST -->
+
+        <a
+            href="wishlist.html"
+            class="account-card"
+        >
+
+            <div class="account-card-icon">
+                ❤️
+            </div>
+
+
+            <div>
+
+                <h2>
+                    Your Wishlist
+                </h2>
+
+                <p>
+                    View and manage products you've saved.
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- PROFILE -->
+
+        <a
+            href="#profile"
+            class="account-card"
+        >
+
+            <div class="account-card-icon">
+                👤
+            </div>
+
+
+            <div>
+
+                <h2>
+                    Login & Security
+                </h2>
+
+                <p>
+                    Manage your name, email and account security.
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- ADDRESS -->
+
+        <a
+            href="#addresses"
+            class="account-card"
+        >
+
+            <div class="account-card-icon">
+                📍
+            </div>
+
+
+            <div>
+
+                <h2>
+                    Your Addresses
+                </h2>
+
+                <p>
+                    Add and manage your delivery addresses.
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- PAYMENT -->
+
+        <a
+            href="#payment"
+            class="account-card"
+        >
+
+            <div class="account-card-icon">
+                💳
+            </div>
+
+
+            <div>
+
+                <h2>
+                    Payment Methods
+                </h2>
+
+                <p>
+                    Manage your available payment options.
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- SETTINGS -->
+
+        <a
+            href="#settings"
+            class="account-card"
+        >
+
+            <div class="account-card-icon">
+                ⚙️
+            </div>
+
+
+            <div>
+
+                <h2>
+                    Account Settings
+                </h2>
+
+                <p>
+                    Manage your ShopNest preferences.
+                </p>
+
+            </div>
+
+        </a>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PROFILE / LOGIN & SECURITY
+    ================================================== -->
+
+    <section
+        class="account-section"
+        id="profile"
+    >
+
+
+        <div class="account-section-header">
+
+
+            <div>
+
+                <h2>
+                    👤 Personal Information
+                </h2>
+
+                <p>
+                    Manage your basic account information.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                onclick="editProfile()"
+            >
+                Edit Profile
+            </button>
+
+        </div>
+
+
+
+        <div class="profile-details">
+
+
+            <div class="profile-item">
+
+                <span>
+                    Full Name
+                </span>
+
+                <strong id="accountName">
+                    ShopNest Customer
+                </strong>
+
+            </div>
+
+
+            <div class="profile-item">
+
+                <span>
+                    Email
+                </span>
+
+                <strong id="accountEmail">
+                    customer@shopnest.com
+                </strong>
+
+            </div>
+
+
+            <div class="profile-item">
+
+                <span>
+                    Phone
+                </span>
+
+                <strong id="accountPhone">
+                    +91 XXXXX XXXXX
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- SECURITY -->
+
+        <div class="security-box">
+
+
+            <h3>
+                🔐 Login & Security
+            </h3>
+
+
+            <div class="security-row">
+
+                <div>
+
+                    <strong>
+                        Password
+                    </strong>
+
+                    <p>
+                        Keep your ShopNest account secure.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    onclick="changePassword()"
+                >
+                    Change
+                </button>
+
+            </div>
+
+
+            <div class="security-row">
+
+                <div>
+
+                    <strong>
+                        Email Verification
+                    </strong>
+
+                    <p>
+                        Your account email is protected.
+                    </p>
+
+                </div>
+
+
+                <span class="verified">
+                    ✓ Verified
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         ADDRESSES
+    ================================================== -->
+
+    <section
+        class="account-section"
+        id="addresses"
+    >
+
+
+        <div class="account-section-header">
+
+
+            <div>
+
+                <h2>
+                    📍 Your Addresses
+                </h2>
+
+                <p>
+                    Manage your delivery addresses.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                onclick="addAddress()"
+            >
+                + Add Address
+            </button>
+
+        </div>
+
+
+        <div
+            class="address-list"
+            id="addressList"
+        >
+
+            <!-- Addresses generated by JavaScript -->
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PAYMENT METHODS
+    ================================================== -->
+
+    <section
+        class="account-section"
+        id="payment"
+    >
+
+
+        <div class="account-section-header">
+
+
+            <div>
+
+                <h2>
+                    💳 Payment Methods
+                </h2>
+
+                <p>
+                    Manage your saved payment methods.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                onclick="addPaymentMethod()"
+            >
+                + Add Payment
+            </button>
+
+        </div>
+
+
+        <div
+            class="payment-list"
+            id="paymentList"
+        >
+
+            <!-- Payment methods generated by JavaScript -->
+
+        </div>
+
+
+        <div class="payment-info">
+
+            🔒 Your payment information is securely stored
+            and used only for ShopNest purchases.
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         ACCOUNT SETTINGS
+    ================================================== -->
+
+    <section
+        class="account-section"
+        id="settings"
+    >
+
+
+        <div class="account-section-header">
+
+
+            <div>
+
+                <h2>
+                    ⚙️ Account Settings
+                </h2>
+
+                <p>
+                    Manage your ShopNest preferences.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- NOTIFICATIONS -->
+
+        <div class="settings-list">
+
+
+            <div class="setting-item">
+
+
+                <div>
+
+                    <strong>
+                        Email Notifications
+                    </strong>
+
+                    <p>
+                        Receive updates about orders and offers.
+                    </p>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="emailNotifications"
+                        checked
+                        onchange="saveSettings()"
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- ORDER UPDATES -->
+
+            <div class="setting-item">
+
+
+                <div>
+
+                    <strong>
+                        Order Updates
+                    </strong>
+
+                    <p>
+                        Get notifications about your orders.
+                    </p>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="orderNotifications"
+                        checked
+                        onchange="saveSettings()"
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- DEALS -->
+
+            <div class="setting-item">
+
+
+                <div>
+
+                    <strong>
+                        Offers & Deals
+                    </strong>
+
+                    <p>
+                        Receive notifications about ShopNest deals.
+                    </p>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="dealNotifications"
+                        onchange="saveSettings()"
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- LANGUAGE -->
+
+            <div class="setting-item">
+
+
+                <div>
+
+                    <strong>
+                        Language
+                    </strong>
+
+                    <p>
+                        Choose your preferred language.
+                    </p>
+
+                </div>
+
+
+                <select
+                    id="languageSetting"
+                    onchange="saveSettings()"
+                >
+
+                    <option value="English">
+                        English
+                    </option>
+
+                    <option value="Hindi">
+                        Hindi
+                    </option>
+
+                    <option value="Marathi">
+                        Marathi
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- COUNTRY -->
+
+            <div class="setting-item">
+
+
+                <div>
+
+                    <strong>
+                        Country / Region
+                    </strong>
+
+                    <p>
+                        Your current shopping region.
+                    </p>
+
+                </div>
+
+
+                <select
+                    id="countrySetting"
+                    onchange="saveSettings()"
+                >
+
+                    <option value="India">
+                        India
+                    </option>
+
+                    <option value="United States">
+                        United States
+                    </option>
+
+                    <option value="United Kingdom">
+                        United Kingdom
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="settings-saved">
+            ✓ Your settings are saved automatically.
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         QUICK LINKS
+    ================================================== -->
+
+    <section class="account-section">
+
+
+        <h2>
+            Quick Links
+        </h2>
+
+
+        <div class="quick-links">
+
+
+            <a href="orders.html">
+
+                📦
+
+                <span>
+                    My Orders
+                </span>
+
+            </a>
+
+
+            <a href="wishlist.html">
+
+                ❤️
+
+                <span>
+                    Wishlist
+                </span>
+
+            </a>
+
+
+            <a href="#addresses">
+
+                📍
+
+                <span>
+                    Addresses
+                </span>
+
+            </a>
+
+
+            <a href="#payment">
+
+                💳
+
+                <span>
+                    Payment
+                </span>
+
+            </a>
+
+
+            <a href="products.html">
+
+                🛍️
+
+                <span>
+                    Continue Shopping
+                </span>
+
+            </a>
+
+
+            <a href="cart.html">
+
+                🛒
+
+                <span>
+                    Shopping Cart
+                </span>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         SHOPPING RECOMMENDATION
+    ================================================== -->
+
+    <section class="account-banner">
+
+
+        <div>
+
+            <h2>
+                Discover More on ShopNest
+            </h2>
+
+
+            <p>
+                Explore thousands of products across electronics,
+                fashion, home, beauty, gaming and books.
+            </p>
+
+        </div>
+
+
+        <a href="products.html">
+            Start Shopping →
+        </a>
+
+    </section>
+
+
+
+    <!-- =================================================
+         LOGOUT
+    ================================================== -->
+
+    <section class="logout-section">
+
+
+        <button
+            class="logout-button"
+            onclick="logoutUser()"
+        >
+
+            🚪 Sign Out
+
+        </button>
+
+    </section>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <div
+        class="footer-top"
+        onclick="window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })"
+    >
+
+        Back to top ↑
+
+    </div>
+
+
+
+    <div class="footer-content">
+
+
+        <div>
+
+            <h3>
+                Get to Know Us
+            </h3>
+
+            <a href="about.html">
+                About ShopNest
+            </a>
+
+            <a href="careers.html">
+                Careers
+            </a>
+
+            <a href="press.html">
+                Press Releases
+            </a>
+
+            <a href="service.html">
+                Contact Us
+            </a>
+
+        </div>
+
+
+
+        <div>
+
+            <h3>
+                Make Money With Us
+            </h3>
+
+            <a href="sell.html">
+                Sell on ShopNest
+            </a>
+
+            <a href="affiliate.html">
+                Become an Affiliate
+            </a>
+
+            <a href="advertise.html">
+                Advertise Your Products
+            </a>
+
+        </div>
+
+
+
+        <div>
+
+            <h3>
+                Customer Support
+            </h3>
+
+            <a href="#profile">
+                Your Account
+            </a>
+
+            <a href="orders.html">
+                Orders
+            </a>
+
+            <a href="returns.html">
+                Returns
+            </a>
+
+            <a href="service.html">
+                Help Center
+            </a>
+
+        </div>
+
+
+
+        <div>
+
+            <h3>
+                Connect With Us
+            </h3>
+
+            
+                <a href="https://www.instagram.com/" target="_blank">
+                Instagram
+            </a>
+
+             <a href="https://www.facebook.com/" target="_blank">
+                Facebook
+            </a>
+
+            <a href="https://www.youtube.com/" target="_blank">
+                YouTube
+            </a>
+        </div>
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+
+        <h2>
+            ShopNest
+        </h2>
+
+
+        <p>
+            © 2026 ShopNest. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     MAIN SHOPNEST JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+
+
+<!-- =====================================================
+     ACCOUNT PAGE JAVASCRIPT
+===================================================== -->
+
+<script>
+    /* =====================================================
+   UPDATE LOCATION BASED ON LOGIN STATUS
+===================================================== */
+
+function updateLocationStatus() {
+
+    const locationElement =
+        document.getElementById("headerLocation");
+
+    if (!locationElement) {
+        return;
+    }
+
+    const savedUser =
+        localStorage.getItem("shopnestUser") ||
+        sessionStorage.getItem("shopnestUser");
+
+    if (savedUser) {
+
+        locationElement.style.display = "flex";
+
+    } else {
+
+        locationElement.style.display = "none";
+
+    }
+}
+
+/* =====================================================
+   PROTECT ACCOUNT PAGE
+===================================================== */
+
+(function protectAccountPage() {
+
+    const savedUser =
+        localStorage.getItem("shopnestUser") ||
+        sessionStorage.getItem("shopnestUser");
+
+    if (!savedUser) {
+
+        window.location.href = "login.html";
+
+    }
+
+})();
+/* =====================================================
+   LOAD ACCOUNT PAGE
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        updateAccountHeader();
+
+        updateAllMenuUser();
+
+        updateAccountPage();
+
+        updateLocationStatus();
+
+        loadAddresses();
+
+        loadPaymentMethods();
+
+        loadSettings();
+
+    }
+);
+
+/* =====================================================
+   UPDATE ACCOUNT HEADER
+===================================================== */
+
+function updateAccountHeader() {
+
+    const savedUser =
+        localStorage.getItem("shopnestUser") ||
+        sessionStorage.getItem("shopnestUser");
+
+
+    const greeting =
+        document.getElementById("accountHeaderGreeting");
+
+    const accountName =
+        document.getElementById("accountHeaderName");
+
+    if (!greeting || !accountName) {
+        return;
+    }
+
+    if (!savedUser) {
+
+        greeting.textContent = "Hello, Sign in";
+        accountName.textContent = "Account & Lists";
+
+        return;
+    }
+
+    try {
+
+        const user = JSON.parse(savedUser);
+
+        if (user.name) {
+
+            greeting.textContent =
+                "Hello, " + user.name;
+
+            accountName.textContent =
+                "Account & Lists";
+
+        }
+
+    } catch (error) {
+
+        greeting.textContent = "Hello, Sign in";
+        accountName.textContent = "Account & Lists";
+
+    }
+}
+
+/* =====================================================
+   UPDATE PERSONAL INFORMATION
+===================================================== */
+
+function updateAccountPage() {
+
+    const savedUser =
+        localStorage.getItem("shopnestUser") ||
+        sessionStorage.getItem("shopnestUser");
+
+
+    const nameElement =
+        document.getElementById("accountName");
+
+    const emailElement =
+        document.getElementById("accountEmail");
+
+    const phoneElement =
+        document.getElementById("accountPhone");
+
+
+    // If no user is logged in
+    if (!savedUser) {
+
+        if (nameElement) {
+            nameElement.textContent = "ShopNest Customer";
+        }
+
+        if (emailElement) {
+            emailElement.textContent = "customer@shopnest.com";
+        }
+
+        if (phoneElement) {
+            phoneElement.textContent = "+91 XXXXX XXXXX";
+        }
+
+        return;
+    }
+
+
+    try {
+
+        const user = JSON.parse(savedUser);
+
+
+        // NAME
+        if (nameElement) {
+
+            nameElement.textContent =
+                user.name || "ShopNest Customer";
+
+        }
+
+
+        // EMAIL
+        if (emailElement) {
+
+            emailElement.textContent =
+                user.email || "customer@shopnest.com";
+
+        }
+
+
+        // PHONE
+        if (phoneElement) {
+
+            phoneElement.textContent =
+                user.phone || "+91 XXXXX XXXXX";
+
+        }
+
+
+    } catch (error) {
+
+        console.error(
+            "Error loading user information:",
+            error
+        );
+
+    }
+
+}
+
+/* =====================================================
+   EDIT PROFILE
+===================================================== */
+
+function editProfile() {
+
+
+    const name =
+        prompt(
+            "Enter your full name:",
+            document.getElementById(
+                "accountName"
+            ).textContent
+        );
+
+
+    if (!name) {
+        return;
+    }
+
+
+    const email =
+        prompt(
+            "Enter your email:",
+            document.getElementById(
+                "accountEmail"
+            ).textContent
+        );
+
+
+    if (!email) {
+        return;
+    }
+
+
+    const phone =
+        prompt(
+            "Enter your phone number:",
+            document.getElementById(
+                "accountPhone"
+            ).textContent
+        );
+
+
+    const user = {
+
+        name: name,
+
+        email: email,
+
+        phone: phone || ""
+
+    };
+
+
+    localStorage.setItem(
+        "shopnestUser",
+        JSON.stringify(user)
+    );
+
+
+    updateAccountPage();
+
+
+    alert(
+        "Profile updated successfully!"
+    );
+
+}
+
+
+
+/* =====================================================
+   CHANGE PASSWORD
+===================================================== */
+
+function changePassword() {
+
+
+    const oldPassword =
+        prompt(
+            "Enter your current password:"
+        );
+
+
+    if (!oldPassword) {
+        return;
+    }
+
+
+    const newPassword =
+        prompt(
+            "Enter your new password:"
+        );
+
+
+    if (!newPassword) {
+        return;
+    }
+
+
+    const confirmPassword =
+        prompt(
+            "Confirm your new password:"
+        );
+
+
+    if (
+        newPassword !==
+        confirmPassword
+    ) {
+
+        alert(
+            "Passwords do not match."
+        );
+
+        return;
+
+    }
+
+
+    alert(
+        "Password changed successfully!"
+    );
+
+}
+
+
+
+/* =====================================================
+   ADDRESS FUNCTIONS
+===================================================== */
+
+function loadAddresses() {
+
+
+    const addressList =
+        document.getElementById(
+            "addressList"
+        );
+
+
+    if (!addressList) {
+        return;
+    }
+
+
+    let addresses =
+        JSON.parse(
+            localStorage.getItem(
+                "shopnestAddresses"
+            )
+        ) || [];
+
+
+    addressList.innerHTML = "";
+
+
+    if (
+        addresses.length === 0
+    ) {
+
+        addressList.innerHTML = `
+
+            <div class="empty-account-message">
+
+                📍 No saved addresses yet.
+
+                <br><br>
+
+                Add an address to make checkout faster.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    addresses.forEach(
+        function (address, index) {
+
+
+            const addressCard =
+                document.createElement(
+                    "div"
+                );
+
+
+            addressCard.className =
+                "saved-address";
+
+
+            addressCard.innerHTML = `
+
+                <div>
+
+                    <span class="address-label">
+                        ${address.label}
+                    </span>
+
+                    <h3>
+                        ${address.name}
+                    </h3>
+
+                    <p>
+                        ${address.address}
+                    </p>
+
+                    <p>
+                        📞 ${address.phone}
+                    </p>
+
+                </div>
+
+
+                <div class="address-actions">
+
+                    <button
+                        type="button"
+                        onclick="editAddress(${index})"
+                    >
+                        Edit
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="deleteAddress(${index})"
+                    >
+                        Delete
+                    </button>
+
+                </div>
+
+            `;
+
+
+            addressList.appendChild(
+                addressCard
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   ADD ADDRESS
+===================================================== */
+
+function addAddress() {
+
+
+    const name =
+        prompt(
+            "Enter recipient name:"
+        );
+
+
+    if (!name) {
+        return;
+    }
+
+
+    const phone =
+        prompt(
+            "Enter phone number:"
+        );
+
+
+    if (!phone) {
+        return;
+    }
+
+
+    const address =
+        prompt(
+            "Enter complete delivery address:"
+        );
+
+
+    if (!address) {
+        return;
+    }
+
+
+    const label =
+        prompt(
+            "Address label (Home / Work):",
+            "Home"
+        ) || "Home";
+
+
+    let addresses =
+        JSON.parse(
+            localStorage.getItem(
+                "shopnestAddresses"
+            )
+        ) || [];
+
+
+    addresses.push({
+
+        name: name,
+
+        phone: phone,
+
+        address: address,
+
+        label: label
+
+    });
+
+
+    localStorage.setItem(
+        "shopnestAddresses",
+        JSON.stringify(addresses)
+    );
+
+
+    loadAddresses();
+
+
+    alert(
+        "Address added successfully!"
+    );
+
+}
+
+
+
+/* =====================================================
+   EDIT ADDRESS
+===================================================== */
+
+function editAddress(index) {
+
+
+    let addresses =
+        JSON.parse(
+            localStorage.getItem(
+                "shopnestAddresses"
+            )
+        ) || [];
+
+
+    const address =
+        addresses[index];
+
+
+    if (!address) {
+        return;
+    }
+
+
+    const name =
+        prompt(
+            "Recipient name:",
+            address.name
+        );
+
+
+    if (!name) {
+        return;
+    }
+
+
+    const phone =
+        prompt(
+            "Phone number:",
+            address.phone
+        );
+
+
+    if (!phone) {
+        return;
+    }
+
+
+    const completeAddress =
+        prompt(
+            "Delivery address:",
+            address.address
+        );
+
+
+    if (!completeAddress) {
+        return;
+    }
+
+
+    const label =
+        prompt(
+            "Address label:",
+            address.label
+        ) || address.label;
+
+
+    addresses[index] = {
+
+        name: name,
+
+        phone: phone,
+
+        address: completeAddress,
+
+        label: label
+
+    };
+
+
+    localStorage.setItem(
+        "shopnestAddresses",
+        JSON.stringify(addresses)
+    );
+
+
+    loadAddresses();
+
+
+    alert(
+        "Address updated successfully!"
+    );
+
+}
+
+
+
+/* =====================================================
+   DELETE ADDRESS
+===================================================== */
+
+function deleteAddress(index) {
+
+
+    const confirmDelete =
+        confirm(
+            "Are you sure you want to delete this address?"
+        );
+
+
+    if (!confirmDelete) {
+        return;
+    }
+
+
+    let addresses =
+        JSON.parse(
+            localStorage.getItem(
+                "shopnestAddresses"
+            )
+        ) || [];
+
+
+    addresses.splice(
+        index,
+        1
+    );
+
+
+    localStorage.setItem(
+        "shopnestAddresses",
+        JSON.stringify(addresses)
+    );
+
+
+    loadAddresses();
+
+}
+
+
+
+/* =====================================================
+   PAYMENT METHODS
+===================================================== */
+
+function loadPaymentMethods() {
+
+
+    const paymentList =
+        document.getElementById(
+            "paymentList"
+        );
+
+
+    if (!paymentList) {
+        return;
+    }
+
+
+    let payments =
+        JSON.parse(
+            localStorage.getItem(
+                "shopnestPayments"
+            )
+        ) || [];
+
+
+    paymentList.innerHTML = "";
+
+
+    if (
+        payments.length === 0
+    ) {
+
+        paymentList.innerHTML = `
+
+            <div class="empty-account-message">
+
+                💳 No saved payment methods.
+
+                <br><br>
+
+                Add a payment method for faster checkout.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    payments.forEach(
+        function (payment, index) {
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "saved-payment";
+
+
+            card.innerHTML = `
+
+                <div class="payment-icon">
+                    💳
+                </div>
+
+
+                <div class="payment-details">
+
+                    <strong>
+                        ${payment.type}
+                    </strong>
+
+                    <p>
+                        ${payment.number}
+                    </p>
+
+                    <small>
+                        ${payment.name}
+                    </small>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    onclick="deletePayment(${index})"
+                >
+                    Remove
+                </button>
+
+            `;
+
+
+            paymentList.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   ADD PAYMENT
+===================================================== */
+
+function addPaymentMethod() {
+
+
+    const type =
+        prompt(
+            "Payment type (UPI / Debit Card / Credit Card):",
+            "UPI"
+        );
+
+
+    if (!type) {
+        return;
+    }
+
+
+    const number =
+        prompt(
+            "Enter UPI ID or last 4 digits of card:"
+        );
+
+
+    if (!number) {
+        return;
+    }
+
+
+    const name =
+        prompt(
+            "Enter payment holder name:"
+        );
+
+
+    if (!name) {
+        return;
+    }
+
+
+    let payments =
+        JSON.parse(
+            localStorage.getItem(
+                "shopnestPayments"
+            )
+        ) || [];
+
+
+    payments.push({
+
+        type: type,
+
+        number: number,
+
+        name: name
+
+    });
+
+
+    localStorage.setItem(
+        "shopnestPayments",
+        JSON.stringify(payments)
+    );
+
+
+    loadPaymentMethods();
+
+
+    alert(
+        "Payment method added successfully!"
+    );
+
+}
+
+
+
+/* =====================================================
+   DELETE PAYMENT
+===================================================== */
+
+function deletePayment(index) {
+
+
+    const confirmDelete =
+        confirm(
+            "Remove this payment method?"
+        );
+
+
+    if (!confirmDelete) {
+        return;
+    }
+
+
+    let payments =
+        JSON.parse(
+            localStorage.getItem(
+                "shopnestPayments"
+            )
+        ) || [];
+
+
+    payments.splice(
+        index,
+        1
+    );
+
+
+    localStorage.setItem(
+        "shopnestPayments",
+        JSON.stringify(payments)
+    );
+
+
+    loadPaymentMethods();
+
+}
+
+
+
+/* =====================================================
+   SETTINGS
+===================================================== */
+
+function loadSettings() {
+
+
+    const savedSettings =
+        JSON.parse(
+            localStorage.getItem(
+                "shopnestSettings"
+            )
+        );
+
+
+    if (!savedSettings) {
+        return;
+    }
+
+
+    const email =
+        document.getElementById(
+            "emailNotifications"
+        );
+
+
+    const orders =
+        document.getElementById(
+            "orderNotifications"
+        );
+
+
+    const deals =
+        document.getElementById(
+            "dealNotifications"
+        );
+
+
+    const language =
+        document.getElementById(
+            "languageSetting"
+        );
+
+
+    const country =
+        document.getElementById(
+            "countrySetting"
+        );
+
+
+    if (
+        email &&
+        savedSettings.email !== undefined
+    ) {
+
+        email.checked =
+            savedSettings.email;
+
+    }
+
+
+    if (
+        orders &&
+        savedSettings.orders !== undefined
+    ) {
+
+        orders.checked =
+            savedSettings.orders;
+
+    }
+
+
+    if (
+        deals &&
+        savedSettings.deals !== undefined
+    ) {
+
+        deals.checked =
+            savedSettings.deals;
+
+    }
+
+
+    if (
+        language &&
+        savedSettings.language
+    ) {
+
+        language.value =
+            savedSettings.language;
+
+    }
+
+
+    if (
+        country &&
+        savedSettings.country
+    ) {
+
+        country.value =
+            savedSettings.country;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SAVE SETTINGS
+===================================================== */
+
+function saveSettings() {
+
+
+    const settings = {
+
+        email:
+            document.getElementById(
+                "emailNotifications"
+            ).checked,
+
+        orders:
+            document.getElementById(
+                "orderNotifications"
+            ).checked,
+
+        deals:
+            document.getElementById(
+                "dealNotifications"
+            ).checked,
+
+        language:
+            document.getElementById(
+                "languageSetting"
+            ).value,
+
+        country:
+            document.getElementById(
+                "countrySetting"
+            ).value
+
+    };
+
+
+    localStorage.setItem(
+        "shopnestSettings",
+        JSON.stringify(settings)
+    );
+
+
+    console.log(
+        "ShopNest settings saved."
+    );
+
+}
+
+
+
+/* =====================================================
+   LOGOUT USER
+===================================================== */
+
+function logoutUser() {
+
+    const confirmLogout = confirm(
+        "Are you sure you want to sign out?"
+    );
+
+    if (!confirmLogout) {
+        return;
+    }
+
+
+    // Remove login status
+    localStorage.removeItem("shopnestLoggedIn");
+    sessionStorage.removeItem("shopnestLoggedIn");
+
+
+    // Remove user information
+    localStorage.removeItem("shopnestUser");
+    sessionStorage.removeItem("shopnestUser");
+
+
+    alert(
+        "You have been signed out successfully."
+    );
+
+
+    // Go to login page
+    window.location.href = "login.html";
+}
+/* =====================================================
+   SMOOTH SCROLL FOR ACCOUNT LINKS
+===================================================== */
+
+document.addEventListener(
+    "click",
+    function (event) {
+
+
+        const link =
+            event.target.closest(
+                'a[href^="#"]'
+            );
+
+
+        if (!link) {
+            return;
+        }
+
+
+        const targetId =
+            link.getAttribute(
+                "href"
+            );
+
+
+        if (
+            targetId === "#" ||
+            !targetId
+        ) {
+            return;
+        }
+
+
+        const target =
+            document.querySelector(
+                targetId
+            );
+
+
+        if (!target) {
+            return;
+        }
+
+
+        event.preventDefault();
+
+
+        target.scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "start"
+
+        });
+
+    }
+);
+function updateAllMenuUser() {
+
+  const savedUser =
+    localStorage.getItem("shopnestUser") ||
+    sessionStorage.getItem("shopnestUser");
+
+    const menuGreeting =
+        document.getElementById("allMenuGreeting");
+
+    if (!menuGreeting) {
+        return;
+    }
+
+    if (!savedUser) {
+        menuGreeting.textContent = "👤 Hello, Sign in";
+        return;
+    }
+
+    try {
+
+        const user = JSON.parse(savedUser);
+
+        if (user.name) {
+            menuGreeting.textContent =
+                "👤 Hello, " + user.name;
+        } else {
+            menuGreeting.textContent =
+                "👤 Hello, Sign in";
+        }
+
+    } catch (error) {
+
+        menuGreeting.textContent =
+            "👤 Hello, Sign in";
+
+    }
+}
+
+</script>
+
+
+</body>
+
+</html>

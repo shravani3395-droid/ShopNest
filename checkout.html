@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        ShopNest - Checkout
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+
+<header class="top-header checkout-header">
+
+    <div class="logo">
+        Shop<span>Nest</span>
+    </div>
+
+    <div class="checkout-title">
+        Secure Checkout 🔒
+    </div>
+
+</header>
+
+
+<main class="checkout-page">
+
+
+    <div class="checkout-main">
+
+
+        <!-- DELIVERY -->
+
+        <section class="checkout-section">
+
+            <h2>
+                1. Delivery Address
+            </h2>
+
+
+            <div class="address-form">
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="fullName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            placeholder="Enter your full name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="Enter phone number"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="address">
+                        Address
+                    </label>
+
+                    <textarea
+                        id="address"
+                        placeholder="House / Flat / Street / Area"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="city">
+                            City
+                        </label>
+
+                        <input
+                            type="text"
+                            id="city"
+                            placeholder="City"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="state">
+                            State
+                        </label>
+
+                        <input
+                            type="text"
+                            id="state"
+                            placeholder="State"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="pincode">
+                            PIN Code
+                        </label>
+
+                        <input
+                            type="text"
+                            id="pincode"
+                            placeholder="PIN Code"
+                        >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PAYMENT -->
+
+        <section class="checkout-section">
+
+            <h2>
+                2. Payment Method
+            </h2>
+
+
+            <div class="payment-options">
+
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="cod"
+                        checked
+                    >
+
+                    <span>
+                        💵 Cash on Delivery
+                    </span>
+
+                </label>
+
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="upi"
+                    >
+
+                    <span>
+                        📱 UPI
+                    </span>
+
+                </label>
+
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="card"
+                    >
+
+                    <span>
+                        💳 Credit / Debit Card
+                    </span>
+
+                </label>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- REVIEW -->
+
+        <section class="checkout-section">
+
+            <h2>
+                3. Review Your Order
+            </h2>
+
+            <div id="checkoutItems"></div>
+
+        </section>
+
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <aside class="checkout-summary">
+
+        <h2>
+            Order Summary
+        </h2>
+
+
+        <div class="summary-row">
+
+            <span>
+                Items
+            </span>
+
+            <span id="checkoutItemCount">
+                0
+            </span>
+
+        </div>
+
+
+        <div class="summary-row">
+
+            <span>
+                Subtotal
+            </span>
+
+            <span id="checkoutSubtotal">
+                ₹0
+            </span>
+
+        </div>
+
+
+        <div class="summary-row">
+
+            <span>
+                Delivery
+            </span>
+
+            <span class="free">
+                FREE
+            </span>
+
+        </div>
+
+
+        <hr>
+
+
+        <div class="summary-total">
+
+            <span>
+                Total
+            </span>
+
+            <span id="checkoutTotal">
+                ₹0
+            </span>
+
+        </div>
+
+
+        <button
+            class="place-order-button"
+            onclick="placeOrder()"
+        >
+            Place Your Order
+        </button>
+
+
+        <p class="secure-text">
+            🔒 Your order information is secure.
+        </p>
+
+    </aside>
+
+
+</main>
+
+
+<footer>
+
+    <div class="footer-bottom">
+
+        <h2>
+            ShopNest
+        </h2>
+
+        <p>
+            © 2026 ShopNest. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+<script src="script.js"></script>
+
+
+<!-- =====================================================
+     CHECKOUT ORDER JAVASCRIPT
+===================================================== -->
+
+<script>
+
+// =====================================================
+// PLACE ORDER
+// =====================================================
+
+function placeOrder() {
+
+    // ---------------------------------------------
+    // CHECK LOGIN
+    // ---------------------------------------------
+
+    const savedUser =
+        localStorage.getItem("shopnestUser");
+
+    if (!savedUser) {
+
+        alert(
+            "Please sign in before placing your order."
+        );
+
+        window.location.href = "login.html";
+
+        return;
+    }
+
+
+    // ---------------------------------------------
+    // CHECK CART
+    // ---------------------------------------------
+
+    if (
+        typeof cart === "undefined" ||
+        !Array.isArray(cart) ||
+        cart.length === 0
+    ) {
+
+        alert(
+            "Your cart is empty."
+        );
+
+        window.location.href = "products.html";
+
+        return;
+    }
+
+
+    // ---------------------------------------------
+    // GET DELIVERY INFORMATION
+    // ---------------------------------------------
+
+    const fullName =
+        document.getElementById("fullName").value.trim();
+
+    const phone =
+        document.getElementById("phone").value.trim();
+
+    const address =
+        document.getElementById("address").value.trim();
+
+    const city =
+        document.getElementById("city").value.trim();
+
+    const state =
+        document.getElementById("state").value.trim();
+
+    const pincode =
+        document.getElementById("pincode").value.trim();
+
+
+    // ---------------------------------------------
+    // VALIDATE DELIVERY INFORMATION
+    // ---------------------------------------------
+
+    if (
+        !fullName ||
+        !phone ||
+        !address ||
+        !city ||
+        !state ||
+        !pincode
+    ) {
+
+        alert(
+            "Please fill in all delivery address details."
+        );
+
+        return;
+    }
+
+
+    // ---------------------------------------------
+    // GET PAYMENT METHOD
+    // ---------------------------------------------
+
+    const paymentElement =
+        document.querySelector(
+            'input[name="payment"]:checked'
+        );
+
+
+    const paymentMethod =
+        paymentElement
+            ? paymentElement.value
+            : "cod";
+
+
+    // ---------------------------------------------
+    // CALCULATE TOTAL
+    // ---------------------------------------------
+
+    let total = 0;
+    let itemCount = 0;
+
+
+    cart.forEach(function (product) {
+
+        const price =
+            Number(product.price) || 0;
+
+        const quantity =
+            Number(product.quantity) || 1;
+
+
+        total +=
+            price * quantity;
+
+        itemCount +=
+            quantity;
+
+    });
+
+
+    // ---------------------------------------------
+    // CREATE ORDER ID
+    // ---------------------------------------------
+
+    const orderId =
+        "SN" +
+        Date.now();
+
+
+    // ---------------------------------------------
+    // CREATE ORDER
+    // ---------------------------------------------
+
+    const order = {
+
+        orderId: orderId,
+
+        date:
+            new Date().toLocaleDateString(
+                "en-IN",
+                {
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric"
+                }
+            ),
+
+        status: "processing",
+
+        paymentMethod: paymentMethod,
+
+        total: total,
+
+        itemCount: itemCount,
+
+        customer: {
+
+            name: fullName,
+
+            phone: phone,
+
+            address: address,
+
+            city: city,
+
+            state: state,
+
+            pincode: pincode
+
+        },
+
+        products:
+            cart.map(function (product) {
+
+                return {
+
+                    name: product.name,
+
+                    price:
+                        Number(product.price) || 0,
+
+                    quantity:
+                        Number(product.quantity) || 1,
+
+                    image:
+                        product.image || ""
+
+                };
+
+            })
+
+    };
+
+
+    // ---------------------------------------------
+    // GET EXISTING ORDERS
+    // ---------------------------------------------
+
+    let orders = [];
+
+
+    try {
+
+        orders =
+            JSON.parse(
+                localStorage.getItem(
+                    "shopnestOrders"
+                )
+            ) || [];
+
+    } catch (error) {
+
+        orders = [];
+
+    }
+
+
+    if (!Array.isArray(orders)) {
+
+        orders = [];
+
+    }
+
+
+    // ---------------------------------------------
+    // SAVE NEW ORDER
+    // ---------------------------------------------
+
+    orders.unshift(order);
+
+
+    localStorage.setItem(
+        "shopnestOrders",
+        JSON.stringify(orders)
+    );
+
+
+    // ---------------------------------------------
+    // EMPTY CART
+    // ---------------------------------------------
+
+    cart.length = 0;
+
+
+    if (
+        typeof saveCart === "function"
+    ) {
+
+        saveCart();
+
+    } else {
+
+        localStorage.removeItem(
+            "shopnestCart"
+        );
+
+    }
+
+
+    if (
+        typeof updateCartCount === "function"
+    ) {
+
+        updateCartCount();
+
+    }
+
+
+    // ---------------------------------------------
+    // SUCCESS MESSAGE
+    // ---------------------------------------------
+
+    alert(
+        "Order placed successfully! 🎉\n\n" +
+        "Order ID: " +
+        orderId
+    );
+
+
+    // ---------------------------------------------
+    // GO TO ORDERS PAGE
+    // ---------------------------------------------
+
+    window.location.href =
+        "orders.html";
+
+}
+
+</script>
+
+
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ShopNest - Sign In</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="auth-page">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="auth-header">
+
+        <a
+            href="index.html"
+            class="auth-logo"
+        >
+            Shop<span>Nest</span>
+        </a>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         LOGIN
+    ====================================================== -->
+
+    <main class="auth-container">
+
+        <div class="auth-card">
+
+            <h1>
+                Sign in
+            </h1>
+
+
+            <p class="auth-subtitle">
+                Welcome back to ShopNest.
+            </p>
+
+
+
+            <!-- EMAIL / MOBILE -->
+
+            <div class="auth-form-group">
+
+                <label for="loginEmail">
+
+                    Email or Mobile Number
+
+                </label>
+
+                <input
+                    type="text"
+                    id="loginEmail"
+                    placeholder="Enter email or mobile number"
+                    autocomplete="username"
+                >
+
+            </div>
+
+
+
+            <!-- PASSWORD -->
+
+            <div class="auth-form-group">
+
+                <div class="password-label-row">
+
+                    <label for="loginPassword">
+
+                        Password
+
+                    </label>
+
+                   <a href="forgot-password.html">
+    Forgot password?
+</a>
+                </div>
+
+
+                <div class="password-input-wrapper">
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                    >
+
+                    <button
+                        type="button"
+                        class="show-password-button"
+                        onclick="togglePassword('loginPassword', this)"
+                    >
+                        Show
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- REMEMBER ME -->
+
+            <label class="remember-me">
+
+                <input
+                    type="checkbox"
+                    id="rememberMe"
+                >
+
+                <span>
+                    Remember me
+                </span>
+
+            </label>
+
+
+
+            <!-- MESSAGE -->
+
+            <div
+                id="loginMessage"
+                class="auth-message"
+                aria-live="polite"
+            ></div>
+
+
+
+            <!-- LOGIN BUTTON -->
+
+            <button
+                type="button"
+                class="auth-button"
+                onclick="loginUser()"
+            >
+                Sign in
+            </button>
+
+
+
+            <!-- TERMS -->
+
+            <p class="auth-terms">
+
+                By continuing, you agree to the
+                <a href="terms.html">
+                    ShopNest Terms & Conditions
+                </a>
+                and
+                <a href="privacy.html">
+                    Privacy Policy
+                </a>.
+
+            </p>
+
+
+
+            <!-- CREATE ACCOUNT -->
+
+            <div class="auth-divider">
+
+                <span>
+                    New to ShopNest?
+                </span>
+
+            </div>
+
+
+            <a
+                href="register.html"
+                class="auth-secondary-button"
+            >
+                Create your ShopNest account
+            </a>
+
+        </div>
+
+
+
+        <!-- BACK TO HOME -->
+
+        <a
+            href="index.html"
+            class="back-home"
+        >
+            ← Back to ShopNest
+        </a>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="auth-footer">
+
+        <div class="auth-footer-links">
+
+            <a href="privacy.html">
+                Privacy Notice
+            </a>
+
+            <a href="terms.html">
+                Terms & Conditions
+            </a>
+
+            <a href="help.html">
+                Help
+            </a>
+
+        </div>
+
+
+        <p>
+            © 2026 ShopNest. All rights reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

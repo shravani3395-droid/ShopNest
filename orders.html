@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        ShopNest - Your Orders
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="top-header">
+
+
+    <div class="logo">
+        Shop<span>Nest</span>
+    </div>
+
+
+    <div class="location">
+
+        <small>
+            Deliver to
+        </small>
+
+        <strong>
+            📍 India
+        </strong>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <form
+        class="search-box"
+        onsubmit="searchProduct(); return false;"
+    >
+
+        <select id="searchCategory" onchange="filterBySearchCategory()">
+
+    <option value="All">All</option>
+
+    <option value="Electronics">Electronics</option>
+
+    <option value="Fashion">Fashion</option>
+
+    <option value="Home">Home</option>
+
+    <option value="Beauty">Beauty</option>
+
+    <option value="Gaming">Gaming</option>
+
+    <option value="Books">Books</option>
+
+</select>
+
+
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search ShopNest"
+            autocomplete="off"
+        >
+
+
+        <button type="submit">
+            🔍
+        </button>
+
+    </form>
+
+
+    <!-- ACCOUNT -->
+<div
+    class="account"
+    onclick="window.location.href='account.html'"
+    style="cursor:pointer;"
+>
+
+    <small id="accountHeaderGreeting">
+        Hello, Sign in
+    </small>
+
+    <strong id="accountHeaderName">
+        Account & Lists
+    </strong>
+
+</div>
+   <!-- ORDERS -->
+
+<div
+    class="orders"
+    onclick="window.location.href='orders.html'"
+    style="cursor: pointer;"
+>
+
+    <small>
+        Returns
+    </small>
+
+    <strong>
+        & Orders
+    </strong>
+
+</div>
+
+
+    <!-- CART -->
+
+    <div
+        class="cart"
+        onclick="openCart()"
+    >
+
+        🛒
+
+        <span id="cartCount">
+            0
+        </span>
+
+        <strong>
+            Cart
+        </strong>
+
+    </div>
+
+
+</header>
+
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav class="navbar">
+
+   <div class="menu" id="allMenuButton">
+    ☰ All
+</div>
+
+
+    <a href="index.html">
+        Home
+    </a>
+
+
+    <a href="products.html">
+        Products
+    </a>
+
+
+    <a href="products.html">
+        Today's Deals
+    </a>
+
+
+    <a href="products.html">
+        Best Sellers
+    </a>
+
+
+    <a href="products.html">
+        New Releases
+    </a>
+<!-- CATEGORIES -->
+    <a href="products.html?category=Fashion">
+         Fashion
+    </a>
+
+    <a href="products.html?category=Electronics">
+         Electronics
+    </a>
+
+    <a href="products.html?category=Home">
+         Home & kitchen
+    </a>
+
+    <a href="products.html?category=Beauty">
+        Beauty
+    </a>
+
+    <a href="service.html">
+        Customer Service
+    </a>
+
+</nav>
+
+
+
+<!-- =====================================================
+     ALL MENU SIDEBAR
+===================================================== -->
+
+<div class="all-menu-overlay" id="allMenuOverlay"></div>
+
+<aside class="all-menu-sidebar" id="allMenuSidebar">
+
+    <div class="all-menu-header">
+
+        <h2 id="allMenuGreeting">
+    👤 Hello, Sign in
+</h2>
+
+        <button
+            type="button"
+            id="closeAllMenu"
+            class="close-all-menu"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+    <div class="all-menu-content">
+
+        <h3>
+            Shop by Category
+        </h3>
+
+       <a href="products.html?category=Electronics">
+    📱 Electronics
+</a>
+
+<a href="products.html?category=Fashion">
+    👕 Fashion
+</a>
+
+<a href="products.html?category=Home">
+    🏠 Home & Kitchen
+</a>
+
+<a href="products.html?category=Beauty">
+    💄 Beauty
+</a>
+
+<a href="products.html?category=Gaming">
+    🎮 Gaming
+</a>
+
+<a href="products.html?category=Books">
+    📚 Books
+</a>
+        <div class="all-menu-divider"></div>
+
+
+        <h3>
+            Featured
+        </h3>
+
+        <a href="deals.html">
+            🔥 Today's Deals
+        </a>
+
+        <a href="best-sellers.html">
+            ⭐ Best Sellers
+        </a>
+
+        <a href="new-releases.html">
+            🆕 New Releases
+        </a>
+
+
+        <div class="all-menu-divider"></div>
+
+
+        <h3>
+            Help & Settings
+        </h3>
+
+        <a href="account.html">
+            👤 Your Account
+        </a>
+
+        <a href="service.html">
+            ⚙️ Customer Service
+        </a>
+
+    </div>
+
+</aside>
+
+<!-- =====================================================
+     ORDERS PAGE
+===================================================== -->
+
+<main class="orders-page">
+
+
+    <div class="orders-header">
+
+        <h1>
+            Your Orders
+        </h1>
+
+        <p>
+            Track, return, or view your previous orders.
+        </p>
+
+    </div>
+
+
+
+    <!-- ORDER SEARCH -->
+
+    <div class="order-search">
+
+        <input
+            type="text"
+            id="orderSearch"
+            placeholder="Search by order ID or product name"
+            oninput="searchOrders()"
+        >
+
+
+        <button
+            type="button"
+            onclick="searchOrders()"
+        >
+            Search Orders
+        </button>
+
+    </div>
+
+
+
+    <!-- ORDER TABS -->
+    
+ <div class="order-tabs">
+
+
+        <button
+            type="button"
+            class="order-tab active"
+            onclick="filterOrders('all', this)"
+        >
+            All Orders
+        </button>
+
+
+        <button
+            type="button"
+            class="order-tab"
+            onclick="filterOrders('processing', this)"
+        >
+            Processing
+        </button>
+
+
+        <button
+            type="button"
+            class="order-tab"
+            onclick="filterOrders('shipped', this)"
+        >
+            Shipped
+        </button>
+
+
+        <button
+            type="button"
+            class="order-tab"
+            onclick="filterOrders('delivered', this)"
+        >
+            Delivered
+        </button>
+
+
+        <button
+            type="button"
+            class="order-tab"
+            onclick="filterOrders('cancelled', this)"
+        >
+            Cancelled
+        </button>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         DYNAMIC ORDERS
+    ================================================= -->
+
+    <section
+        class="orders-list"
+        id="ordersList"
+    >
+
+    </section>
+
+
+
+    <!-- =================================================
+         EMPTY ORDERS
+    ================================================= -->
+
+    <div
+        class="empty-orders"
+        id="emptyOrders"
+        style="display:none;"
+    >
+
+        <div class="empty-icon">
+            📦
+        </div>
+
+
+        <h2>
+            No orders found
+        </h2>
+
+
+        <p>
+            We couldn't find any orders matching your search.
+        </p>
+
+
+        <a href="products.html">
+            Start Shopping
+        </a>
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <div
+        class="footer-top"
+    >
+        Back to top ↑
+    </div>
+
+
+    <div class="footer-content">
+
+
+        <div>
+
+            <h3>
+                Get to Know Us
+            </h3>
+
+             <a href="about.html">
+                About ShopNest
+            </a>
+
+            <a href="careers.html">
+                Careers
+            </a>
+
+            <a href="press.html">
+                Press Releases
+            </a>
+
+            <a href="service.html">
+                Contact Us
+            </a>
+
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Make Money With Us
+            </h3>
+
+             <a href="sell.html">
+                Sell on ShopNest
+            </a>
+
+            <a href="affiliate.html">
+                Become an Affiliate
+            </a>
+
+            <a href="advertise.html">
+                Advertise Your Products
+            </a>
+
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Customer Support
+            </h3>
+
+            <a href="account.html">
+                Your Account
+            </a>
+
+                
+
+            <a href="orders.html">
+                Orders
+            </a>
+
+            
+
+            <a href="returns.html">
+                Returns
+            </a>
+
+            <a href="service.html">
+                Help Center
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Connect With Us
+            </h3>
+
+          
+                <a href="https://www.instagram.com/" target="_blank">
+                Instagram
+            </a>
+
+             <a href="https://www.facebook.com/" target="_blank">
+                Facebook
+            </a>
+
+            <a href="https://www.youtube.com/" target="_blank">
+                YouTube
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <h2>
+            ShopNest
+        </h2>
+
+        <p>
+            © 2026 ShopNest. All rights reserved.
+        </p>
+
+    </div>
+
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+
+<!-- =====================================================
+     ORDERS JAVASCRIPT
+===================================================== -->
+
+<script>
+
+// =====================================================
+// CHECK LOGIN BEFORE OPENING ORDERS PAGE
+// =====================================================
+
+(function checkOrdersLogin() {
+
+    const savedUser =
+        localStorage.getItem("shopnestUser");
+
+    if (!savedUser) {
+
+        window.location.href = "login.html";
+
+    }
+
+})();
+// =====================================================
+// GET SAVED ORDERS
+// =====================================================
+
+function getOrders() {
+
+    try {
+
+        const orders =
+            JSON.parse(
+                localStorage.getItem(
+                    "shopnestOrders"
+                )
+            );
+
+        return Array.isArray(orders)
+            ? orders
+            : [];
+
+    } catch (error) {
+
+        return [];
+
+    }
+
+}
+
+
+
+// =====================================================
+// SAVE ORDERS
+// =====================================================
+
+function saveOrders(orders) {
+
+    localStorage.setItem(
+        "shopnestOrders",
+        JSON.stringify(orders)
+    );
+
+}
+
+
+
+// =====================================================
+// DISPLAY ORDERS
+// =====================================================
+
+function displayOrders(
+    orders = getOrders()
+) {
+
+    const ordersList =
+        document.getElementById(
+            "ordersList"
+        );
+
+    const emptyOrders =
+        document.getElementById(
+            "emptyOrders"
+        );
+
+
+    if (!ordersList) return;
+
+
+    ordersList.innerHTML = "";
+
+
+    if (orders.length === 0) {
+
+        emptyOrders.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    emptyOrders.style.display =
+        "none";
+
+
+    orders.forEach(order => {
+
+
+        const card =
+            document.createElement(
+                "article"
+            );
+
+
+        card.className =
+            "order-card";
+
+
+        card.dataset.status =
+            order.status;
+
+
+        card.dataset.order =
+            order.orderId;
+
+
+        let productsHTML = "";
+
+
+        order.products.forEach(product => {
+
+            productsHTML += `
+
+                <div class="order-product">
+
+                    <div class="order-image">
+
+                        ${
+                            product.image
+                                ? `
+                                    <img
+                                        src="${product.image}"
+                                        alt="${product.name}"
+                                    >
+                                  `
+                                : "🛍️"
+                        }
+
+                    </div>
+
+
+                    <div class="order-info">
+
+                        <h3>
+                            ${product.name}
+                        </h3>
+
+
+                        <p>
+                            Quantity:
+                            ${product.quantity}
+                        </p>
+
+
+                        <p>
+                            ${formatPrice(
+                                product.price
+                            )}
+                            each
+                        </p>
+
+
+                    </div>
+
+                </div>
+
+            `;
+
+        });
+
+
+        const statusText =
+            getOrderStatusText(
+                order.status
+            );
+
+
+        card.innerHTML = `
+
+            <div class="order-top">
+
+
+                <div>
+
+                    <strong>
+                        Order #${order.orderId}
+                    </strong>
+
+
+                    <span>
+                        Placed on ${order.date}
+                    </span>
+
+
+                </div>
+
+
+                <div class="order-total">
+
+                    <strong>
+                        ${formatPrice(
+                            order.total
+                        )}
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="order-body">
+
+
+                <div class="order-products">
+
+                    ${productsHTML}
+
+                </div>
+
+
+                <div class="order-info">
+
+
+                    <p class="order-status ${order.status}">
+
+                        ${statusText}
+
+                    </p>
+
+
+                    <p>
+                        ${getOrderMessage(
+                            order.status
+                        )}
+                    </p>
+
+
+                    <p>
+                        Payment:
+                        ${formatPaymentMethod(
+                            order.paymentMethod
+                        )}
+                    </p>
+
+
+                </div>
+
+
+                <div class="order-actions">
+
+
+                    <button
+                        type="button"
+                        onclick="viewOrder('${order.orderId}')"
+                    >
+                        View Order
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="buyAgainOrder('${order.orderId}')"
+                    >
+                        Buy Again
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+        `;
+
+
+        ordersList.appendChild(card);
+
+    });
+
+}
+
+
+
+// =====================================================
+// ORDER STATUS TEXT
+// =====================================================
+
+function getOrderStatusText(status) {
+
+    switch (status) {
+
+        case "processing":
+            return "⏳ Processing";
+
+        case "shipped":
+            return "🚚 Shipped";
+
+        case "delivered":
+            return "✓ Delivered";
+
+        case "cancelled":
+            return "✕ Cancelled";
+
+        default:
+            return "📦 Processing";
+
+    }
+
+}
+
+
+
+// =====================================================
+// ORDER MESSAGE
+// =====================================================
+
+function getOrderMessage(status) {
+
+    switch (status) {
+
+        case "processing":
+            return "Preparing your order for shipment.";
+
+        case "shipped":
+            return "Your order is on the way.";
+
+        case "delivered":
+            return "Delivered successfully.";
+
+        case "cancelled":
+            return "This order has been cancelled.";
+
+        default:
+            return "Your order is being processed.";
+
+    }
+
+}
+
+
+
+// =====================================================
+// PAYMENT METHOD
+// =====================================================
+
+function formatPaymentMethod(method) {
+
+    switch (method) {
+
+        case "cod":
+            return "Cash on Delivery";
+
+        case "upi":
+            return "UPI";
+
+        case "card":
+            return "Credit / Debit Card";
+
+        default:
+            return method || "Not specified";
+
+    }
+
+}
+
+
+
+// =====================================================
+// FILTER ORDERS
+// =====================================================
+
+function filterOrders(
+    status,
+    button
+) {
+
+    document
+        .querySelectorAll(
+            ".order-tab"
+        )
+        .forEach(tab => {
+
+            tab.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    if (button) {
+
+        button.classList.add(
+            "active"
+        );
+
+    }
+
+
+    const searchInput =
+        document.getElementById(
+            "orderSearch"
+        );
+
+
+    const searchValue =
+        searchInput
+            ? searchInput.value
+                .toLowerCase()
+                .trim()
+            : "";
+
+
+    let orders =
+        getOrders();
+
+
+    if (status !== "all") {
+
+        orders =
+            orders.filter(
+                order =>
+                    order.status === status
+            );
+
+    }
+
+
+    if (searchValue !== "") {
+
+        orders =
+            orders.filter(order => {
+
+                const orderText =
+                    JSON.stringify(order)
+                        .toLowerCase();
+
+                return orderText.includes(
+                    searchValue
+                );
+
+            });
+
+    }
+
+
+    displayOrders(orders);
+
+}
+
+
+
+// =====================================================
+// SEARCH ORDERS
+// =====================================================
+
+function searchOrders() {
+
+    const searchInput =
+        document.getElementById(
+            "orderSearch"
+        );
+
+
+    const searchValue =
+        searchInput
+            ? searchInput.value
+                .toLowerCase()
+                .trim()
+            : "";
+
+
+    const activeTab =
+        document.querySelector(
+            ".order-tab.active"
+        );
+
+
+    let status =
+        activeTab
+            ? activeTab.textContent
+                .toLowerCase()
+            : "all";
+
+
+    if (
+        status.includes("processing")
+    ) {
+
+        status = "processing";
+
+    } else if (
+        status.includes("shipped")
+    ) {
+
+        status = "shipped";
+
+    } else if (
+        status.includes("delivered")
+    ) {
+
+        status = "delivered";
+
+    } else if (
+        status.includes("cancelled")
+    ) {
+
+        status = "cancelled";
+
+    } else {
+
+        status = "all";
+
+    }
+
+
+    let orders =
+        getOrders();
+
+
+    if (status !== "all") {
+
+        orders =
+            orders.filter(
+                order =>
+                    order.status === status
+            );
+
+    }
+
+
+    if (searchValue !== "") {
+
+        orders =
+            orders.filter(order => {
+
+                const orderText =
+                    JSON.stringify(order)
+                        .toLowerCase();
+
+                return orderText.includes(
+                    searchValue
+                );
+
+            });
+
+    }
+
+
+    displayOrders(orders);
+
+}
+
+
+
+// =====================================================
+// VIEW ORDER
+// =====================================================
+
+function viewOrder(orderNumber) {
+
+    const orders =
+        getOrders();
+
+
+    const order =
+        orders.find(
+            item =>
+                item.orderId === orderNumber
+        );
+
+
+    if (!order) {
+
+        alert(
+            "Order information not found."
+        );
+
+        return;
+
+    }
+
+
+    let productDetails = "";
+
+
+    order.products.forEach(product => {
+
+        productDetails +=
+            product.name +
+            " × " +
+            product.quantity +
+            "\n";
+
+    });
+
+
+    alert(
+
+        "ORDER DETAILS\n\n" +
+
+        "Order ID: " +
+        order.orderId +
+
+        "\nDate: " +
+        order.date +
+
+        "\nStatus: " +
+        getOrderStatusText(
+            order.status
+        ) +
+
+        "\nPayment: " +
+        formatPaymentMethod(
+            order.paymentMethod
+        ) +
+
+        "\n\nProducts:\n" +
+
+        productDetails +
+
+        "\nTotal: " +
+        formatPrice(
+            order.total
+        )
+
+    );
+
+}
+
+
+
+// =====================================================
+// BUY AGAIN
+// =====================================================
+
+function buyAgainOrder(orderNumber) {
+
+    const orders =
+        getOrders();
+
+
+    const order =
+        orders.find(
+            item =>
+                item.orderId === orderNumber
+        );
+
+
+    if (!order) {
+
+        alert(
+            "Order information not found."
+        );
+
+        return;
+
+    }
+
+
+    order.products.forEach(product => {
+
+        const existing =
+            cart.find(
+                item =>
+                    item.name === product.name
+            );
+
+
+        if (existing) {
+
+            existing.quantity +=
+                product.quantity;
+
+        } else {
+
+            cart.push({
+    name: product.name,
+    price: product.price,
+    quantity: product.quantity,
+    image: product.image
+});
+
+        }
+
+    });
+
+
+    saveCart();
+
+    updateCartCount();
+
+
+    alert(
+        "Products from your order have been added to your cart. 🛒"
+    );
+
+
+    window.location.href =
+        "cart.html";
+
+}
+
+
+
+// =====================================================
+// INITIALIZE ORDERS PAGE
+// =====================================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        displayOrders();
+
+    }
+);
+
+</script>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    updateOrdersUser();
+
+});
+
+
+function updateOrdersUser() {
+
+    const savedUser =
+        localStorage.getItem("shopnestUser");
+
+    const greeting =
+        document.getElementById("accountHeaderGreeting");
+
+    const accountName =
+        document.getElementById("accountHeaderName");
+
+    const menuGreeting =
+        document.getElementById("allMenuGreeting");
+
+
+    if (!savedUser) {
+
+        if (greeting) {
+            greeting.textContent = "Hello, Sign in";
+        }
+
+        if (accountName) {
+            accountName.textContent = "Account & Lists";
+        }
+
+        if (menuGreeting) {
+            menuGreeting.textContent = "👤 Hello, Sign in";
+        }
+
+        return;
+    }
+
+
+    try {
+
+        const user =
+            JSON.parse(savedUser);
+
+
+        if (user.name) {
+
+            if (greeting) {
+                greeting.textContent =
+                    "Hello, " + user.name;
+            }
+
+            if (accountName) {
+                accountName.textContent =
+                    "Account & Lists";
+            }
+
+            if (menuGreeting) {
+                menuGreeting.textContent =
+                    "👤 Hello, " + user.name;
+            }
+
+        }
+
+    } catch (error) {
+
+        console.log("Unable to load user information.");
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>
